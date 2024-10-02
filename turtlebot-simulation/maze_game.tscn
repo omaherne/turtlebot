@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq47nanir25rs"]
+
+[ext_resource type="Script" path="res://turtle_bot.gd" id="1_74atu"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_46mps"]
+size = Vector2(50, 50)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mn2v1"]
+
+[node name="MazeGame" type="Node"]
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+mesh = SubResource("QuadMesh_46mps")
+
+[node name="Turtle Bot" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+script = ExtResource("1_74atu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Turtle Bot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7634e-08, 0.632192)
+shape = SubResource("BoxShape3D_mn2v1")
+
+[node name="Camera3D" type="Camera3D" parent="Turtle Bot"]
+transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0, 10)
+fov = 63.8194

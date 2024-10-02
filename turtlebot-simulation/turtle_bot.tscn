@@ -4,3 +4,7 @@
 
 [node name="TurtleBot" type="Node3D"]
 script = ExtResource("1_tqup1")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
