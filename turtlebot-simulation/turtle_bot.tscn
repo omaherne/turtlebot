@@ -1,10 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2x7l0r3hggc2"]
+[gd_scene load_steps=4 format=3 uid="uid://c2x7l0r3hggc2"]
 
 [ext_resource type="Script" path="res://turtle_bot.gd" id="1_tqup1"]
 
-[node name="TurtleBot" type="Node3D"]
+[sub_resource type="CylinderMesh" id="CylinderMesh_7qe2u"]
+height = 0.25
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2s888"]
+points = PackedVector3Array(0.144611, 0.125, 0.448612, -0.0895657, -0.125, -0.478058, -0.0867667, 0.125, -0.463119, -0.46299, -0.125, 0.14937, 0.478058, -0.125, 0.0895657, 0.405183, 0.125, -0.245884, -0.463119, 0.125, -0.0867667, 0.0895657, -0.125, 0.478058, -0.289404, 0.125, 0.376261, 0.304512, -0.112224, -0.395903, -0.388399, -0.125, -0.298739, 0.405183, 0.125, 0.245884, -0.194106, -0.125, 0.448109, 0.298739, -0.125, 0.388305, 0.18804, 0.125, -0.434106, -0.289404, 0.125, -0.376261, 0.448109, -0.125, -0.194106, 0.463119, 0.125, -0.0867667, -0.434106, 0.125, 0.188131, -0.0867667, 0.125, 0.463119, -0.388399, -0.125, 0.298739, -0.478058, -0.125, -0.0895657, 0.0895657, -0.125, -0.478058, -0.25391, -0.125, -0.418254, -0.405183, 0.125, -0.245975, 0.418254, -0.125, 0.253816, 0.289404, 0.125, 0.376171, 0.463119, 0.125, 0.0867667, -0.463119, 0.125, 0.0867667, 0.289404, 0.125, -0.376171, 0.478058, -0.125, -0.0895657, -0.0895657, -0.125, 0.478058)
+
+[node name="TurtleBot" type="RigidBody3D"]
 script = ExtResource("1_tqup1")
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CylinderMesh_7qe2u")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_2s888")

@@ -1,26 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://cq47nanir25rs"]
+[gd_scene load_steps=7 format=3 uid="uid://cq47nanir25rs"]
 
-[ext_resource type="Script" path="res://turtle_bot.gd" id="1_74atu"]
+[ext_resource type="PackedScene" uid="uid://c2x7l0r3hggc2" path="res://turtle_bot.tscn" id="1_uk3sr"]
 
-[sub_resource type="QuadMesh" id="QuadMesh_46mps"]
-size = Vector2(50, 50)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5hosa"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_mn2v1"]
+[sub_resource type="Sky" id="Sky_xrkwd"]
+sky_material = SubResource("ProceduralSkyMaterial_5hosa")
 
-[node name="MazeGame" type="Node"]
+[sub_resource type="Environment" id="Environment_cstau"]
+background_mode = 2
+sky = SubResource("Sky_xrkwd")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_jma04"]
+size = Vector2(10, 10)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_im18f"]
+data = PackedVector3Array(5, 0, 5, -5, 0, 5, 5, 0, -5, -5, 0, 5, -5, 0, -5, 5, 0, -5)
+
+[node name="Maze Game" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_cstau")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 
 [node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-mesh = SubResource("QuadMesh_46mps")
+mesh = SubResource("PlaneMesh_jma04")
+skeleton = NodePath("../Camera3D")
 
-[node name="Turtle Bot" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
-script = ExtResource("1_74atu")
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Turtle Bot"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.7634e-08, 0.632192)
-shape = SubResource("BoxShape3D_mn2v1")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_im18f")
 
-[node name="Camera3D" type="Camera3D" parent="Turtle Bot"]
-transform = Transform3D(1, 0, 0, 0, 0.173648, -0.984808, 0, 0.984808, 0.173648, 0, 0, 10)
-fov = 63.8194
+[node name="TurtleBot" parent="." instance=ExtResource("1_uk3sr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2)
