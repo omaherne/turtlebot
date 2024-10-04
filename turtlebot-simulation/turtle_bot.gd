@@ -10,6 +10,8 @@ var pitch_input := 0.0
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+
+
 func _physics_process(delta: float) -> void:
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right") # moves the bot left instead of turning, will get to it later
