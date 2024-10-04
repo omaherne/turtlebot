@@ -12,7 +12,6 @@ func _ready() -> void:
 
 
 
-
 func _physics_process(delta: float) -> void:
 	var input := Vector3.ZERO
 	input.x = Input.get_axis("move_left", "move_right") # moves the bot left instead of turning, will get to it later
