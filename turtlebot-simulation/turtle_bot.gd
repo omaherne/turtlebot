@@ -9,7 +9,7 @@ var pitch_input := 0.0
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
+#heleo
 
 
 func _physics_process(delta: float) -> void:
