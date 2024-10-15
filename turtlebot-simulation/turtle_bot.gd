@@ -11,6 +11,9 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 #hello owen
 
+# Define the target position for teleportation
+var target_position := Vector3(20.5, 0, 4.0)  # Change these values as needed
+var teleport_scene := "res://level2.tscn"  # Path to the scene you want to teleport to
 
 func _physics_process(delta: float) -> void:
 	var input := Vector3.ZERO
@@ -18,6 +21,9 @@ func _physics_process(delta: float) -> void:
 	input.z = Input.get_axis("move_forward", "move_backward")
 	
 	apply_central_force(twist_pivot.basis * input * 1200.0 * delta) # basis aligns with camera so the player moves relative to camera perspective
+	
+	if global_transform.origin.distance_to(target_position) < 1.25:
+		get_tree().change_scene_to_file("res://level2.tscn")
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
