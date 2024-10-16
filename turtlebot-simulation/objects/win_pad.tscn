@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfif4y1agnvdr"]
+
+[ext_resource type="Script" path="res://objects/win_pad.gd" id="1_y31gd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhfph"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uugtv"]
+material = SubResource("StandardMaterial3D_vhfph")
+size = Vector3(1, 0.5, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gptbn"]
+size = Vector3(1, 0.5, 1)
+
+[node name="WinPad" type="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.24, 0)
+script = ExtResource("1_y31gd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_uugtv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_gptbn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

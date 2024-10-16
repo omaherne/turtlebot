@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://hv4d71dkwxvc"]
-
-[ext_resource type="PackedScene" uid="uid://1xsjpa238mvr" path="res://level_1.tscn" id="1_461ma"]
-
-[node name="Maze Game" type="Node3D"]
-
-[node name="Level 1" parent="." instance=ExtResource("1_461ma")]
