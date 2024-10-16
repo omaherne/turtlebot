@@ -1,33 +1,25 @@
-extends RigidBody3D
+extends VehicleBody3D
 
-var mouse_sensitivity := 0.001
-var twist_input := 0.0
-var pitch_input := 0.0
+const STEER_SPEED = 1.5
+const STEER_LIMIT = 1
+const BRAKE_STRENGTH = 2.0
 
-@onready var twist_pivot := $TwistPivot
-@onready var pitch_pivot := $TwistPivot/PitchPivot
+@export var engine_force_value := 5.0
+@onready var left_wheel = $"Left Wheel"
+@onready var right_wheel = $"Right Wheel"
 
-func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+var steer_target := 0.0
 
-func _physics_process(delta: float) -> void:
-	var input := Vector3.ZERO
-	input.x = Input.get_axis("rotate_left", "rotate_right") # moves the bot left instead of turning, will get to it later
-	input.z = Input.get_axis("move_forward", "move_backward")
+func _physics_process(delta: float):
+	var fwd_mps := (linear_velocity * transform.basis).x
+
+	if Input.is_action_pressed("rotate_right"):
+		right_wheel.engine_force = 1 * delta
+		left_wheel.engine_force = -1 * delta
 	
-	apply_central_force(twist_pivot.basis * input * 1200.0 * delta) # basis aligns with camera so the player moves relative to camera perspective
+	if Input.is_action_pressed("rotate_left"):
+		right_wheel.engine_force = -1 * delta
+		left_wheel.engine_force = 1 * delta
 	
-	if Input.is_action_just_pressed("ui_cancel"):
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		
-	twist_pivot.rotate_y(twist_input)
-	pitch_pivot.rotate_x(pitch_input)
-	pitch_pivot.rotation.x = clamp(pitch_pivot.rotation.x, deg_to_rad(-30), deg_to_rad(30)) # keeps the camera from going below the bot (30 degrees)
-	twist_input = 0.0
-	pitch_input = 0.0
-
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			twist_input = - event.relative.x * mouse_sensitivity
-			pitch_input = - event.relative.y * mouse_sensitivity
+	right_wheel.engine_force = Input.get_axis("move_backward", "move_forward") * engine_force_value
+	left_wheel.engine_force = Input.get_axis("move_backward", "move_forward") * engine_force_value

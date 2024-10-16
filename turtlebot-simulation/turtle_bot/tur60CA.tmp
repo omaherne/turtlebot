@@ -13,13 +13,12 @@ height = 0.25
 size = Vector3(0.75, 0.25, 0.75)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_e55pw"]
-top_radius = 0.125
-bottom_radius = 0.125
+top_radius = 0.25
+bottom_radius = 0.25
 height = 0.1
 
 [node name="TurtleBot" type="VehicleBody3D" groups=["TurtleBot"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
-mass = 3.3
 script = ExtResource("1_tqup1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
@@ -45,10 +44,10 @@ transform = Transform3D(1, 0, 0, 0, 0.984808, 0.173648, 0, -0.173648, 0.984808, 
 current = true
 
 [node name="Left Wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.5, -0.1, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.5, 0, 0)
 use_as_traction = true
 use_as_steering = true
-wheel_radius = 0.125
+wheel_radius = 0.25
 suspension_stiffness = 30.0
 
 [node name="Left Wheel" type="MeshInstance3D" parent="Left Wheel"]
@@ -56,10 +55,10 @@ transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 
 mesh = SubResource("CylinderMesh_e55pw")
 
 [node name="Right Wheel" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, -0.1, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0.5, 0, 0)
 use_as_traction = true
 use_as_steering = true
-wheel_radius = 0.125
+wheel_radius = 0.25
 suspension_stiffness = 30.0
 
 [node name="Right Wheel" type="MeshInstance3D" parent="Right Wheel"]
