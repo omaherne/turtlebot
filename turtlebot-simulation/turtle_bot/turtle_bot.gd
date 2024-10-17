@@ -15,10 +15,8 @@ func _physics_process(delta: float):
 
 	if Input.is_action_pressed("rotate_right"):
 		right_wheel.engine_force = 1 * delta
-		left_wheel.engine_force = -1 * delta
 	
 	if Input.is_action_pressed("rotate_left"):
-		right_wheel.engine_force = -1 * delta
 		left_wheel.engine_force = 1 * delta
 	
 	right_wheel.engine_force = Input.get_axis("move_backward", "move_forward") * engine_force_value

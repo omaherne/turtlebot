@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://1xsjpa238mvr"]
 
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_1s60s"]
-[ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://block/blocks.tres" id="2_26b04"]
+[ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://objects/blocks.tres" id="2_26b04"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5hosa"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
