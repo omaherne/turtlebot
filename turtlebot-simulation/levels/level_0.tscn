@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=3 uid="uid://1xsjpa238mvr"]
 
-[ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_ccamk"]
-[ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_xauym"]
-[ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_4dceo"]
+[ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_p0ueb"]
+[ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_aulmk"]
+[ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_galdt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5hosa"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -27,10 +27,10 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 light_color = Color(1, 1, 0.870588, 1)
 shadow_enabled = true
 
-[node name="TurtleBot" parent="." instance=ExtResource("1_ccamk")]
+[node name="TurtleBot" parent="." instance=ExtResource("1_p0ueb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 0)
 
-[node name="Floor" parent="." instance=ExtResource("2_xauym")]
+[node name="Floor" parent="." instance=ExtResource("2_aulmk")]
 transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
 
-[node name="WinPad" parent="." instance=ExtResource("3_4dceo")]
+[node name="WinPad" parent="." instance=ExtResource("3_galdt")]
