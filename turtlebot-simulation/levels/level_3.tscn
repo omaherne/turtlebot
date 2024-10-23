@@ -1,49 +1,43 @@
-[gd_scene load_steps=9 format=3 uid="uid://1xsjpa238mvr"]
+[gd_scene load_steps=9 format=3 uid="uid://beh78rvdui0k8"]
 
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_1s60s"]
 [ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://objects/blocks.tres" id="2_26b04"]
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_ua82x"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_h8rjh"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5hosa"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u68ab"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
 
-[sub_resource type="Sky" id="Sky_kjc8h"]
-sky_material = SubResource("ProceduralSkyMaterial_5hosa")
+[sub_resource type="Sky" id="Sky_xrkwd"]
+sky_material = SubResource("ProceduralSkyMaterial_u68ab")
 
-[sub_resource type="Environment" id="Environment_cstau"]
+[sub_resource type="Environment" id="Environment_e2fj8"]
 background_mode = 2
-sky = SubResource("Sky_kjc8h")
+sky = SubResource("Sky_xrkwd")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_coh6f"]
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0t8ma"]
 
-[node name="Level 3" type="Node3D"]
+[node name="Level1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_cstau")
-camera_attributes = SubResource("CameraAttributesPractical_coh6f")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 10, 0)
-light_color = Color(1, 1, 0.870588, 1)
-shadow_enabled = true
-
-[node name="TurtleBot" parent="." instance=ExtResource("1_1s60s")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -6, 0.4, 6)
-linear_damp = 5.0
+environment = SubResource("Environment_e2fj8")
+camera_attributes = SubResource("CameraAttributesPractical_0t8ma")
 
 [node name="Floor" parent="." instance=ExtResource("2_ua82x")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
+[node name="TurtleBot" parent="." instance=ExtResource("1_1s60s")]
+transform = Transform3D(-0.99995, 0, -0.0100004, 0, 1, 0, 0.0100004, 0, -0.99995, -5.20553, 0.5, 2.16779)
+
 [node name="WinPad" parent="." instance=ExtResource("3_h8rjh")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.24, 5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.24, 6)
 
 [node name="GridMap" type="GridMap" parent="."]
 mesh_library = ExtResource("2_26b04")
 cell_size = Vector3(1, 1, 1)
 data = {
-"cells": PackedInt32Array(65528, 65528, 0, 65529, 65528, 0, 65530, 65528, 0, 65531, 65528, 0, 65532, 65528, 0, 65533, 65528, 0, 65534, 65528, 0, 65535, 65528, 0, 0, 65528, 0, 1, 65528, 0, 2, 65528, 0, 3, 65528, 0, 4, 65528, 0, 5, 65528, 0, 6, 65528, 0, 7, 65528, 0, 7, 65529, 0, 7, 65530, 0, 7, 65531, 0, 7, 65532, 0, 7, 65533, 0, 7, 65534, 0, 7, 65535, 0, 7, 0, 0, 7, 1, 0, 7, 2, 0, 7, 3, 0, 7, 4, 0, 7, 5, 0, 7, 7, 0, 7, 6, 0, 6, 7, 0, 5, 7, 0, 4, 7, 0, 3, 7, 0, 2, 7, 0, 1, 7, 0, 0, 7, 0, 65535, 7, 0, 65534, 7, 0, 65533, 7, 0, 65532, 7, 0, 65531, 7, 0, 65530, 7, 0, 65529, 7, 0, 65528, 7, 0, 65528, 6, 0, 65528, 5, 0, 65528, 4, 0, 65528, 3, 0, 65528, 2, 0, 65528, 1, 0, 65528, 0, 0, 65528, 65535, 0, 65528, 65534, 0, 65528, 65533, 0, 65528, 65532, 0, 65528, 65531, 0, 65528, 65530, 0, 65528, 65529, 0, 65529, 4, 0, 65530, 4, 0, 65531, 4, 0, 65534, 6, 0, 65534, 5, 0, 65534, 4, 0, 65534, 3, 0, 65534, 2, 0, 65534, 1, 0, 65533, 1, 0, 65532, 1, 0, 65531, 1, 0, 65529, 65534, 0, 65530, 65534, 0, 65531, 65534, 0, 65532, 65534, 0, 65531, 65531, 0, 65531, 65532, 0, 65531, 65530, 0, 65531, 65529, 0, 5, 65531, 0, 6, 65531, 0, 4, 65531, 0, 4, 6, 0, 4, 5, 0, 4, 4, 0, 3, 4, 0, 65535, 4, 0, 0, 4, 0, 6, 1, 0, 5, 1, 0, 6, 65534, 0, 5, 65534, 0, 4, 65534, 0, 3, 65534, 0, 2, 65534, 0, 1, 65534, 0, 0, 65533, 0, 65535, 65533, 0, 65535, 65531, 0, 0, 65531, 0, 65535, 65532, 0, 1, 65531, 0, 0, 65534, 0, 65535, 1, 0, 0, 1, 0, 1, 1, 0)
+"cells": PackedInt32Array(65528, 6, 0, 65532, 7, 0, 65528, 0, 0, 65528, 65528, 0, 65528, 65529, 0, 65528, 65530, 0, 65528, 65531, 0, 65528, 65532, 0, 65528, 65533, 0, 65528, 65534, 0, 65528, 65535, 0, 65528, 1, 0, 65528, 2, 0, 65528, 3, 0, 65528, 4, 0, 65528, 5, 0, 65528, 7, 0, 65529, 7, 0, 65530, 7, 0, 65531, 7, 0, 65533, 7, 0, 65534, 7, 0, 65535, 7, 0, 0, 7, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 7, 6, 0, 7, 5, 0, 7, 4, 0, 7, 3, 0, 7, 2, 0, 7, 1, 0, 7, 0, 0, 7, 65535, 0, 7, 65534, 0, 7, 65533, 0, 7, 65532, 0, 7, 65531, 0, 7, 65530, 0, 7, 65529, 0, 7, 65528, 0, 6, 65528, 0, 5, 65528, 0, 4, 65528, 0, 3, 65528, 0, 2, 65528, 0, 1, 65528, 0, 0, 65528, 0, 65535, 65528, 0, 65534, 65528, 0, 65533, 65528, 0, 65532, 65528, 0, 65531, 65528, 0, 65530, 65528, 0, 65529, 65528, 0, 65529, 4, 0, 65530, 4, 0, 65531, 4, 0, 65534, 6, 0, 65534, 5, 0, 65534, 4, 0, 65534, 3, 0, 65534, 2, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65529, 65534, 0, 65530, 65534, 0, 65531, 65534, 0, 65532, 65534, 0, 65531, 65529, 0, 65531, 65530, 0, 65531, 65531, 0, 6, 65531, 0, 5, 65531, 0, 4, 65531, 0, 3, 65531, 0, 65535, 4, 0, 0, 4, 0, 3, 4, 0, 4, 4, 0, 4, 5, 0, 4, 6, 0, 65535, 1, 0, 0, 1, 0, 5, 1, 0, 6, 1, 0, 4, 1, 0, 6, 65534, 0, 5, 65534, 0, 4, 65534, 0, 3, 65534, 0, 2, 65534, 0, 1, 65534, 0, 0, 65534, 0, 65535, 65534, 0, 65535, 65533, 0, 65535, 65532, 0, 65535, 65531, 0, 0, 65531, 0)
 }
