@@ -98,7 +98,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.03137, 1.48992, 3.47939)
 mesh = SubResource("BoxMesh_n7l3k")
 
 [node name="Innerwall4" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.96739, 1.48992, -3.51999)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.03879, 1.48992, -3.51999)
 mesh = SubResource("BoxMesh_n7l3k")
 
 [node name="Innerwall5" type="MeshInstance3D" parent="GridMap"]
