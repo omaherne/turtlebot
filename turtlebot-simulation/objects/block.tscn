@@ -1,8 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://csh7g2bpjeiv6"]
+[gd_scene load_steps=6 format=3 uid="uid://csh7g2bpjeiv6"]
+
+[ext_resource type="Texture2D" uid="uid://bd2itk03c2154" path="res://textures/concrete/dirty_concrete_disp_4k.png" id="1_asxmv"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hgbf7"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_swcgx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6shsb"]
+albedo_texture = ExtResource("1_asxmv")
+
+[sub_resource type="BoxMesh" id="BoxMesh_ujltb"]
+material = SubResource("StandardMaterial3D_6shsb")
 
 [node name="Node3D" type="Node3D"]
 
@@ -15,3 +23,6 @@ skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="BOX/StaticBody3D"]
 shape = SubResource("BoxShape3D_swcgx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="BOX"]
+mesh = SubResource("BoxMesh_ujltb")
