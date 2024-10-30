@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://d4bg5pfkpu17l"]
+[gd_scene load_steps=19 format=3 uid="uid://d4bg5pfkpu17l"]
 
+[ext_resource type="Texture2D" uid="uid://cgsk5wsxu1yj0" path="res://textures/concrete/hangar_concrete_floor_diff_4k.jpg" id="2_pk1oi"]
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="2_reb0t"]
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_rsdxt"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_cs5d1"]
 [ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://objects/blocks.tres" id="3_ieghl"]
+[ext_resource type="Texture2D" uid="uid://dc15bib458ig7" path="res://textures/concrete/hangar_concrete_floor_disp_4k.png" id="6_1ud6j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u68ab"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,6 +22,34 @@ glow_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0t8ma"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_esovo"]
+albedo_texture = ExtResource("2_pk1oi")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_78fmt"]
+material = SubResource("StandardMaterial3D_esovo")
+size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yut22"]
+albedo_texture = ExtResource("6_1ud6j")
+
+[sub_resource type="BoxMesh" id="BoxMesh_co181"]
+material = SubResource("StandardMaterial3D_yut22")
+size = Vector3(16.1, 3, 1.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cce7"]
+albedo_texture = ExtResource("6_1ud6j")
+
+[sub_resource type="BoxMesh" id="BoxMesh_j4cgs"]
+material = SubResource("StandardMaterial3D_1cce7")
+size = Vector3(7.8, 3, 1.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hino"]
+albedo_texture = ExtResource("6_1ud6j")
+
+[sub_resource type="BoxMesh" id="BoxMesh_t8u0t"]
+material = SubResource("StandardMaterial3D_4hino")
+size = Vector3(4.1, 3, 1.1)
+
 [node name="Level1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -29,8 +59,16 @@ camera_attributes = SubResource("CameraAttributesPractical_0t8ma")
 [node name="Floor" parent="." instance=ExtResource("2_rsdxt")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("PlaneMesh_78fmt")
+
 [node name="TurtleBot" parent="." instance=ExtResource("2_reb0t")]
 transform = Transform3D(-0.99995, 0, -0.0100004, 0, 1, 0, 0.0100004, 0, -0.99995, -5.20553, 0.5, 2.16779)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="TurtleBot"]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0533409, 3.24078, -0.00492287)
+light_color = Color(1, 1, 0.870588, 1)
+shadow_enabled = true
 
 [node name="WinPad" parent="." instance=ExtResource("3_cs5d1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, -0.24, -2)
@@ -41,3 +79,49 @@ cell_size = Vector3(1, 1, 1)
 data = {
 "cells": PackedInt32Array(65528, 65528, 0, 65528, 65529, 0, 65528, 65530, 0, 65528, 65531, 0, 65528, 65532, 0, 65528, 65533, 0, 65528, 65534, 0, 65528, 65535, 0, 65528, 4, 0, 65528, 5, 0, 65528, 6, 0, 65528, 7, 0, 65529, 7, 0, 65530, 7, 0, 65531, 7, 0, 65532, 7, 0, 65533, 7, 0, 65534, 7, 0, 65535, 7, 0, 0, 7, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 7, 6, 0, 7, 5, 0, 7, 4, 0, 7, 3, 0, 7, 2, 0, 7, 1, 0, 7, 0, 0, 7, 65533, 0, 7, 65532, 0, 7, 65531, 0, 7, 65530, 0, 7, 65529, 0, 7, 65528, 0, 7, 65534, 0, 7, 65535, 0, 6, 65528, 0, 5, 65528, 0, 4, 65528, 0, 3, 65528, 0, 2, 65528, 0, 1, 65528, 0, 0, 65528, 0, 65535, 65528, 0, 65534, 65528, 0, 65533, 65528, 0, 65532, 65528, 0, 65531, 65528, 0, 65530, 65528, 0, 65529, 65528, 0, 65528, 3, 0, 65528, 2, 0, 65532, 1, 0, 65532, 2, 0, 65532, 3, 0, 0, 3, 0, 3, 65534, 0, 3, 65533, 0, 3, 65532, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 3, 3, 0, 2, 3, 0, 1, 3, 0, 65528, 0, 0, 65528, 1, 0, 65529, 0, 0, 2, 65532, 0, 1, 65532, 0, 0, 65532, 0, 65535, 65532, 0, 65534, 65532, 0, 65533, 65532, 0, 65535, 1, 0, 65535, 2, 0, 65535, 3, 0, 3, 65535, 0, 4, 65535, 0, 5, 65535, 0, 6, 65535, 0)
 }
+
+[node name="Outerwall" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50859, -7.47295)
+mesh = SubResource("BoxMesh_co181")
+
+[node name="Outerwall2" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.50859, 7.51605)
+mesh = SubResource("BoxMesh_co181")
+
+[node name="Outerwall3" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.54204, 1.50859, 0.0244675)
+mesh = SubResource("BoxMesh_co181")
+
+[node name="Outerwall4" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.5, 1.509, 0)
+mesh = SubResource("BoxMesh_co181")
+
+[node name="Innerwall" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.107893, 1.509, -3.46313)
+mesh = SubResource("BoxMesh_j4cgs")
+skeleton = NodePath("../Outerwall4")
+
+[node name="Innerwall2" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.846, 1.508, 0.464)
+mesh = SubResource("BoxMesh_j4cgs")
+skeleton = NodePath("../Outerwall4")
+
+[node name="Innerwall3" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.96318, 1.50207, 3.49973)
+mesh = SubResource("BoxMesh_t8u0t")
+
+[node name="Innerwall4" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.491488, 1.50679, 1.99302)
+mesh = SubResource("BoxMesh_t8u0t")
+
+[node name="Innerwall5" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -3.4952, 1.50679, 1.99302)
+mesh = SubResource("BoxMesh_t8u0t")
+
+[node name="Innerwall6" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3.53721, 1.50679, -1.96658)
+mesh = SubResource("BoxMesh_t8u0t")
+
+[node name="Innerwall7" type="MeshInstance3D" parent="GridMap"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.03585, 1.50679, -0.46073)
+mesh = SubResource("BoxMesh_t8u0t")
