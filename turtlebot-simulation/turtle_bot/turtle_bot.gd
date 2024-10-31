@@ -1,7 +1,13 @@
 extends VehicleBody3D
 
-@export var engine_force_value := 500.0
+@export var engine_force_value := 600.0
 @export var turn_speed := 0.8
+<<<<<<< HEAD
+@export var limit_angular_velocity = 0.9
+@export var brake_strength = 0.08
+
+=======
+>>>>>>> parent of 3853db3 (feagi and textures)
 @onready var left_wheel = $"Left Wheel"
 @onready var right_wheel = $"Right Wheel"
 @onready var front_wheel = $"Front Wheel"

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FEAGI_Resource_Endpoint" load_steps=2 format=3 uid="uid://bpmesbrs52pud"]
+
+[ext_resource type="Script" path="res://addons/FeagiIntegration/Configuration/FEAGI_Resource_Endpoint.gd" id="1_h7v1g"]
+
+[resource]
+script = ExtResource("1_h7v1g")
+magic_link_full = &"https://us-prd-composer.neurorobotics.studio/v1/public/regional/magic/feagi_session?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI4blBoZDN6MW5ST0xTZmRvQ0hSUGpaZ3pBWVAyIn0.atBJ90Uphtcz2OEkwQo3zJScAftjBjjsxX9KLVUjmJs"
+is_using_SSL = true
+FEAGI_TLD = &"user-rycerrbdlfgikrdcbhve-feagi.feagi-k8s-production.neurorobotics.studio"
+FEAGI_API_port = 443
+connector_TLD = &"user-rycerrbdlfgikrdcbhve-feagi.feagi-k8s-production.neurorobotics.studio/p9055"
+connector_ws_port = 443
