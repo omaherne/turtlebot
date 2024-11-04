@@ -2,12 +2,9 @@ extends VehicleBody3D
 
 @export var engine_force_value := 600.0
 @export var turn_speed := 0.8
-<<<<<<< HEAD
 @export var limit_angular_velocity = 0.9
 @export var brake_strength = 0.08
 
-=======
->>>>>>> parent of 3853db3 (feagi and textures)
 @onready var left_wheel = $"Left Wheel"
 @onready var right_wheel = $"Right Wheel"
 @onready var front_wheel = $"Front Wheel"
@@ -26,14 +23,14 @@ func _physics_process(delta: float):
 	
 	if Input.is_action_pressed("rotate_left"):
 		left = -Input.get_action_strength("rotate_left") * turn_speed
-		right = 1 * turn_speed
+		right = turn_speed
 	
 	elif Input.is_action_pressed("rotate_right"):
 		right = -Input.get_action_strength("rotate_right") * turn_speed
-		left = 1 * turn_speed
+		left = turn_speed
 	
 	left_wheel.engine_force = left * engine_force_value * delta
 	right_wheel.engine_force = right * engine_force_value * delta
 	
-	left = left_wheel.brake
-	right = right_wheel.brake
+	left = 0
+	right = 0

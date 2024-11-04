@@ -4,12 +4,11 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dcvpr2e2s00yk"
-path="res://.godot/imported/wood_floor_4k.gltf-3bb3e824fb72bd872e8a9a20ad407fbf.scn"
+valid=false
 
 [deps]
 
 source_file="res://textures/wood_floor_4k.gltf"
-dest_files=["res://.godot/imported/wood_floor_4k.gltf-3bb3e824fb72bd872e8a9a20ad407fbf.scn"]
 
 [params]
 

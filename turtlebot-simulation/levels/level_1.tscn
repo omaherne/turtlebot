@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cep7xrlipiv8v"]
+[gd_scene load_steps=20 format=3 uid="uid://cep7xrlipiv8v"]
 
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="1_eihjd"]
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="3_5tewv"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_klerw"]
 [ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://objects/blocks.tres" id="4_dr63a"]
 [ext_resource type="Texture2D" uid="uid://gapnmclyfuhg" path="res://textures/concrete/dirty_concrete_rough_4k.jpg" id="6_kyopw"]
+[ext_resource type="Script" path="res://levels/panel.gd" id="7_20nd5"]
 [ext_resource type="Texture2D" uid="uid://ddc3xi00ljy4o" path="res://textures/concrete/dirty_concrete_diff_4k.jpg" id="7_ly07f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u68ab"]
@@ -111,3 +112,39 @@ mesh = SubResource("BoxMesh_cd5y6")
 [node name="InnerWall4" type="MeshInstance3D" parent="GridMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48852, 1.51614, -2.4856)
 mesh = SubResource("BoxMesh_cd5y6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" type="Panel" parent="CanvasLayer"]
+offset_left = 152.0
+offset_top = 7.0
+offset_right = 252.0
+offset_bottom = 43.0
+script = ExtResource("7_20nd5")
+
+[node name="Minutes" type="Label" parent="CanvasLayer/Timer"]
+layout_mode = 0
+offset_left = 19.0
+offset_right = 42.0
+offset_bottom = 36.0
+text = "00:"
+vertical_alignment = 1
+
+[node name="Seconds" type="Label" parent="CanvasLayer/Timer"]
+layout_mode = 0
+offset_left = 42.0
+offset_right = 65.0
+offset_bottom = 36.0
+text = "00."
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Milliseconds" type="Label" parent="CanvasLayer/Timer"]
+layout_mode = 0
+offset_left = 65.0
+offset_right = 84.0
+offset_bottom = 36.0
+text = "00
+"
+horizontal_alignment = 2
+vertical_alignment = 1
