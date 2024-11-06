@@ -22,7 +22,7 @@ glow_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0t8ma"]
 
-[sub_resource type="Shader" id="Shader_p61f6"]
+[sub_resource type="Shader" id="Shader_j0fg4"]
 code = "// NOTE: This UDIM Shader is automatically generated
 
 shader_type spatial;
@@ -73,7 +73,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_yqbot"]
 render_priority = 0
-shader = SubResource("Shader_p61f6")
+shader = SubResource("Shader_j0fg4")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
@@ -178,7 +178,7 @@ size = Vector3(12, 3, 1.1)
 material = SubResource("ShaderMaterial_1sucj")
 size = Vector3(14.1, 3, 1.1)
 
-[sub_resource type="Shader" id="Shader_x0lb3"]
+[sub_resource type="Shader" id="Shader_vw6sk"]
 code = "// NOTE: This UDIM Shader is automatically generated
 
 shader_type spatial;
@@ -229,7 +229,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a5unp"]
 render_priority = 0
-shader = SubResource("Shader_x0lb3")
+shader = SubResource("Shader_vw6sk")
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/point_size = 1.0
 shader_parameter/roughness = 1.0
