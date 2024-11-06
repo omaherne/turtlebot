@@ -1,0 +1,118 @@
+[gd_resource type="Resource" script_class="FEAGI_Genome_Mapping" load_steps=17 format=3 uid="uid://cben8xp6cihdh"]
+
+[ext_resource type="Script" path="res://addons/FeagiIntegration/Configuration/FEAGI_Genome_Mapping.gd" id="1_4igcj"]
+[ext_resource type="Script" path="res://addons/FeagiIntegration/Configuration/FEAGI_Emulated_Input.gd" id="1_tjqh8"]
+[ext_resource type="Script" path="res://addons/FeagiIntegration/FEAGI Devices/Motor/FEAGI_Device_Motor_MotionControl.gd" id="2_c71ge"]
+[ext_resource type="Script" path="res://addons/FeagiIntegration/FEAGI Devices/Sensor/FEAGI_Device_Sensor_Camera.gd" id="2_jc4f7"]
+
+[sub_resource type="Resource" id="Resource_32dpl"]
+script = ExtResource("1_tjqh8")
+godot_action_name = &"move_forward"
+action_hold_seconds = 0.3
+action_press_FEAGI_threshold = 0.5
+action_release_FEAGI_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_n3rxu"]
+script = ExtResource("1_tjqh8")
+godot_action_name = &"move_backward"
+action_hold_seconds = 0.3
+action_press_FEAGI_threshold = 0.5
+action_release_FEAGI_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_y6oe0"]
+script = ExtResource("1_tjqh8")
+godot_action_name = &"NONE!"
+action_hold_seconds = 0.3
+action_press_FEAGI_threshold = 0.5
+action_release_FEAGI_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_581gk"]
+script = ExtResource("1_tjqh8")
+godot_action_name = &"NONE!"
+action_hold_seconds = 0.3
+action_press_FEAGI_threshold = 0.5
+action_release_FEAGI_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_1v154"]
+script = ExtResource("1_tjqh8")
+godot_action_name = &"rotate_left"
+action_hold_seconds = 0.3
+action_press_FEAGI_threshold = 0.5
+action_release_FEAGI_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_51flo"]
+script = ExtResource("1_tjqh8")
+godot_action_name = &"rotate_right"
+action_hold_seconds = 0.3
+action_press_FEAGI_threshold = 0.5
+action_release_FEAGI_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_3v23e"]
+script = ExtResource("1_tjqh8")
+godot_action_name = &"NONE!"
+action_hold_seconds = 0.3
+action_press_FEAGI_threshold = 0.5
+action_release_FEAGI_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_pmf25"]
+script = ExtResource("1_tjqh8")
+godot_action_name = &"NONE!"
+action_hold_seconds = 0.3
+action_press_FEAGI_threshold = 0.5
+action_release_FEAGI_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_7wi6n"]
+script = ExtResource("1_tjqh8")
+godot_action_name = &"NONE!"
+action_hold_seconds = 0.3
+action_press_FEAGI_threshold = 0.5
+action_release_FEAGI_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_gj8hm"]
+script = ExtResource("1_tjqh8")
+godot_action_name = &"NONE!"
+action_hold_seconds = 0.3
+action_press_FEAGI_threshold = 0.5
+action_release_FEAGI_threshold = 0.5
+
+[sub_resource type="Resource" id="Resource_pgvkf"]
+script = ExtResource("2_c71ge")
+automatically_emulate_keys = {
+"move_down": SubResource("Resource_n3rxu"),
+"move_left": SubResource("Resource_y6oe0"),
+"move_right": SubResource("Resource_581gk"),
+"move_up": SubResource("Resource_32dpl"),
+"pitch_backward": SubResource("Resource_gj8hm"),
+"pitch_forward": SubResource("Resource_7wi6n"),
+"roll_left": SubResource("Resource_3v23e"),
+"roll_right": SubResource("Resource_pmf25"),
+"yaw_left": SubResource("Resource_1v154"),
+"yaw_right": SubResource("Resource_51flo")
+}
+device_friendly_name = &"motion_control 0"
+FEAGI_index = 0
+device_ID = 0
+is_disabled = false
+
+[sub_resource type="Resource" id="Resource_78ofs"]
+script = ExtResource("2_jc4f7")
+resolution = Vector2i(64, 64)
+is_flipped_x = false
+automatically_create_screengrabber = true
+device_friendly_name = &"camera 0"
+FEAGI_index = 0
+device_ID = 0
+is_disabled = false
+
+[resource]
+script = ExtResource("1_4igcj")
+FEAGI_enabled = true
+debugger_enabled = true
+delay_seconds_between_frames = 0.0333333
+configuration_JSON = &"{\"capabilities\":{\"input\":{\"camera\":{\"0\":{\"camera_resolution\":[64,64],\"custom_name\":\"camera 0\",\"disabled\":false,\"eccentricity_control\":{\"X offset percentage\":1,\"Y offset percentage\":1},\"feagi_index\":0,\"index\":\"00\",\"mirror\":false,\"modulation_control\":{\"X offset percentage\":99,\"Y offset percentage\":99},\"threshold_default\":50}}},\"output\":{\"motion_control\":{\"0\":{\"custom_name\":\"motion_control 0\",\"disabled\":false,\"feagi_index\":0}}}}}"
+sensors = {
+"camera_camera 0": SubResource("Resource_78ofs")
+}
+motors = {
+"motion_control_motion_control 0": SubResource("Resource_pgvkf")
+}

@@ -1,11 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://cep7xrlipiv8v"]
+[gd_scene load_steps=21 format=3 uid="uid://cep7xrlipiv8v"]
 
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="1_eihjd"]
+[ext_resource type="Script" path="res://shader/udim_material/UDIMShaderMaterial.gd" id="2_6um40"]
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="3_5tewv"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_klerw"]
 [ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://objects/blocks.tres" id="4_dr63a"]
-[ext_resource type="Texture2D" uid="uid://gapnmclyfuhg" path="res://textures/concrete/dirty_concrete_rough_4k.jpg" id="6_kyopw"]
-[ext_resource type="Texture2D" uid="uid://ddc3xi00ljy4o" path="res://textures/concrete/dirty_concrete_diff_4k.jpg" id="7_ly07f"]
+[ext_resource type="Shader" path="res://levels/level_1.gdshader" id="6_38hik"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u68ab"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,32 +22,302 @@ glow_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0t8ma"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_naah3"]
-albedo_texture = ExtResource("7_ly07f")
+[sub_resource type="Shader" id="Shader_5scas"]
+code = "// NOTE: This UDIM Shader is automatically generated
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_nearest,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : hint_default_white,filter_nearest,repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r,filter_nearest,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+vec4 map_to_udim_tile(sampler2D sampler, vec2 uv, vec2 x_thresholds, vec2 y_thresholds) {
+	bvec2 ltx = lessThan(vec2(uv.x,uv.x), x_thresholds);
+	bvec2 gtx = greaterThan(vec2(uv.x,uv.x), x_thresholds);
+	bvec2 lty = lessThan(vec2(uv.y,uv.y), y_thresholds);
+	bvec2 gty = greaterThan(vec2(uv.y,uv.y), y_thresholds);
+	vec4 f_tex0x = texture(sampler,uv) * float((int(ltx.y) * int(gtx.x)) * (int(lty.y) * int(gty.x)));
+	f_tex0x.a = 1.0;
+	return f_tex0x;
+}
+
+
+void vertex() {
+}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	ALBEDO = albedo.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqbot"]
+render_priority = 0
+shader = SubResource("Shader_5scas")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = null
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = null
+shader_parameter/uv2_offset = null
+script = ExtResource("2_6um40")
+use_custom_shader = false
+transparency = 0
+blend_mode = 0
+cull_mode = 0
+depth_draw_mode = 0
+shading_mode = 1
+diffuse_mode = 0
+specular_mode = 0
+disable_ambient_light = false
+disable_fog = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+albedo_color = Color(1, 1, 1, 1)
+texture_force_srgb = false
+texture_msdf = false
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+emission_color = Color(0, 0, 0, 1)
+emission_multiplier = 1.0
+emission_op = 0
+emission_on_uv2 = false
+normal_enabled = false
+normal_scale = 1.0
+rim_enabled = false
+rim = 1.0
+rim_tint = 0.5
+clearcoat_enabled = false
+clearcoat = 1.0
+clearcoat_roughness = 0.5
+anisotropy_enabled = false
+anisotropy = 0.0
+ao_enabled = false
+ao_light_effect = 0.0
+ao_on_uv2 = false
+ao_texture_channel = 0
+heightmap_enabled = false
+heightmap_scale = 5.0
+heightmap_deep_parallax = false
+heightmap_flip_tangent = false
+heightmap_flip_binormal = false
+heightmap_flip_texture = false
+subsurf_scatter_enabled = false
+subsurf_scatter_strength = 0.0
+subsurf_scatter_skin_mode = false
+subsurf_scatter_transmittance_enabled = false
+subsurf_scatter_transmittance_depth = 0.1
+subsurf_scatter_transmittance_boost = 0.0
+backlight_enabled = false
+backlight_backlight = Color(0, 0, 0, 1)
+refraction_enabled = false
+refraction_scale = 0.05
+refraction_texture_channel = 0
+detail_enabled = false
+detail_blend_mode = 0
+detail_uv = 0
+texture_filter = 0
+texture_repeat = true
+disable_receive_shadows = false
+shadow_to_opacity = false
+billboard_mode = 0
+grow_enabled = false
+grow_amount = 0.0
+fixed_size = false
+use_point_size = false
+point_size = 1.0
+use_particle_trails = false
+proximity_fade_enabled = false
+proximity_fade_distance = 1.0
+distance_fade = 0
+alpha_antialiasing_mode = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_aetip"]
-material = SubResource("StandardMaterial3D_naah3")
+material = SubResource("ShaderMaterial_yqbot")
 size = Vector2(10, 10)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7k44a"]
-albedo_texture = ExtResource("6_kyopw")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c5gft"]
+render_priority = 0
+shader = ExtResource("6_38hik")
 
 [sub_resource type="BoxMesh" id="BoxMesh_vfl7r"]
-material = SubResource("StandardMaterial3D_7k44a")
+material = SubResource("ShaderMaterial_c5gft")
 size = Vector3(12, 3, 1.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_asirx"]
-albedo_texture = ExtResource("6_kyopw")
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1sucj"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_uaipu"]
-material = SubResource("StandardMaterial3D_asirx")
+material = SubResource("ShaderMaterial_1sucj")
 size = Vector3(14.1, 3, 1.1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_011sx"]
-albedo_texture = ExtResource("6_kyopw")
+[sub_resource type="Shader" id="Shader_it6v7"]
+code = "// NOTE: This UDIM Shader is automatically generated
+
+shader_type spatial;
+render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx;
+uniform vec4 albedo : source_color;
+uniform sampler2D texture_albedo : source_color,filter_nearest,repeat_enable;
+uniform float point_size : hint_range(0,128);
+uniform float roughness : hint_range(0,1);
+uniform sampler2D texture_metallic : hint_default_white,filter_nearest,repeat_enable;
+uniform vec4 metallic_texture_channel;
+uniform sampler2D texture_roughness : hint_roughness_r,filter_nearest,repeat_enable;
+uniform float specular;
+uniform float metallic;
+uniform vec3 uv1_scale;
+uniform vec3 uv1_offset;
+uniform vec3 uv2_scale;
+uniform vec3 uv2_offset;
+
+
+vec4 map_to_udim_tile(sampler2D sampler, vec2 uv, vec2 x_thresholds, vec2 y_thresholds) {
+	bvec2 ltx = lessThan(vec2(uv.x,uv.x), x_thresholds);
+	bvec2 gtx = greaterThan(vec2(uv.x,uv.x), x_thresholds);
+	bvec2 lty = lessThan(vec2(uv.y,uv.y), y_thresholds);
+	bvec2 gty = greaterThan(vec2(uv.y,uv.y), y_thresholds);
+	vec4 f_tex0x = texture(sampler,uv) * float((int(ltx.y) * int(gtx.x)) * (int(lty.y) * int(gty.x)));
+	f_tex0x.a = 1.0;
+	return f_tex0x;
+}
+
+
+void vertex() {
+}
+
+
+
+
+void fragment() {
+	vec2 base_uv = UV;
+	ALBEDO = albedo.rgb;
+	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
+	METALLIC = metallic_tex * metallic;
+	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
+	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
+	ROUGHNESS = roughness_tex * roughness;
+	SPECULAR = specular;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a5unp"]
+render_priority = 0
+shader = SubResource("Shader_it6v7")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = null
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = null
+shader_parameter/uv1_offset = null
+shader_parameter/uv2_scale = null
+shader_parameter/uv2_offset = null
+script = ExtResource("2_6um40")
+use_custom_shader = false
+transparency = 0
+blend_mode = 0
+cull_mode = 0
+depth_draw_mode = 0
+shading_mode = 1
+diffuse_mode = 0
+specular_mode = 0
+disable_ambient_light = false
+disable_fog = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+albedo_color = Color(1, 1, 1, 1)
+texture_force_srgb = false
+texture_msdf = false
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 1.0
+roughness_texture_channel = 0
+emission_enabled = false
+emission_color = Color(0, 0, 0, 1)
+emission_multiplier = 1.0
+emission_op = 0
+emission_on_uv2 = false
+normal_enabled = false
+normal_scale = 1.0
+rim_enabled = false
+rim = 1.0
+rim_tint = 0.5
+clearcoat_enabled = false
+clearcoat = 1.0
+clearcoat_roughness = 0.5
+anisotropy_enabled = false
+anisotropy = 0.0
+ao_enabled = false
+ao_light_effect = 0.0
+ao_on_uv2 = false
+ao_texture_channel = 0
+heightmap_enabled = false
+heightmap_scale = 5.0
+heightmap_deep_parallax = false
+heightmap_flip_tangent = false
+heightmap_flip_binormal = false
+heightmap_flip_texture = false
+subsurf_scatter_enabled = false
+subsurf_scatter_strength = 0.0
+subsurf_scatter_skin_mode = false
+subsurf_scatter_transmittance_enabled = false
+subsurf_scatter_transmittance_depth = 0.1
+subsurf_scatter_transmittance_boost = 0.0
+backlight_enabled = false
+backlight_backlight = Color(0, 0, 0, 1)
+refraction_enabled = false
+refraction_scale = 0.05
+refraction_texture_channel = 0
+detail_enabled = false
+detail_blend_mode = 0
+detail_uv = 0
+texture_filter = 0
+texture_repeat = true
+disable_receive_shadows = false
+shadow_to_opacity = false
+billboard_mode = 0
+grow_enabled = false
+grow_amount = 0.0
+fixed_size = false
+use_point_size = false
+point_size = 1.0
+use_particle_trails = false
+proximity_fade_enabled = false
+proximity_fade_distance = 1.0
+distance_fade = 0
+alpha_antialiasing_mode = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_cd5y6"]
-material = SubResource("StandardMaterial3D_011sx")
+material = SubResource("ShaderMaterial_a5unp")
 size = Vector3(5.1, 3, 1.1)
 
 [node name="Level1" type="Node3D"]
@@ -59,7 +329,7 @@ camera_attributes = SubResource("CameraAttributesPractical_0t8ma")
 [node name="Floor" parent="." instance=ExtResource("1_eihjd")]
 transform = Transform3D(1.25, 0, 0, 0, 1.25, 0, 0, 0, 1.25, 0, 0, 0)
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor"]
+[node name="Material" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("PlaneMesh_aetip")
 
 [node name="TurtleBot" parent="." instance=ExtResource("3_5tewv")]
@@ -67,7 +337,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, -5)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="TurtleBot"]
 transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0533419, 4.12069, -0.00492287)
-light_color = Color(1, 1, 0.870588, 1)
+light_color = Color(0.901961, 1, 1, 1)
 shadow_enabled = true
 
 [node name="WinPad" parent="." instance=ExtResource("3_klerw")]
@@ -81,7 +351,7 @@ data = {
 }
 
 [node name="OuterWall" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.54432, 1.52, 0)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -6.47173, 1.52, 0)
 mesh = SubResource("BoxMesh_vfl7r")
 
 [node name="OuterWall2" type="MeshInstance3D" parent="GridMap"]
@@ -109,5 +379,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4959, 1.51614, -2.46766)
 mesh = SubResource("BoxMesh_cd5y6")
 
 [node name="InnerWall4" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.48852, 1.51614, -2.4856)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4366, 1.51614, -2.4856)
 mesh = SubResource("BoxMesh_cd5y6")

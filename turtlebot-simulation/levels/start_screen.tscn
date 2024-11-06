@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://wpems7oheyg5"]
+
+[ext_resource type="Script" path="res://start_screen.gd" id="1_wagwm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tia2h"]
+font_size = 112
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wagwm")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 163.0
+offset_right = 1230.0
+offset_bottom = 316.0
+text = "Turtle Bot Maze Game"
+label_settings = SubResource("LabelSettings_tia2h")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 473.0
+offset_top = 447.0
+offset_right = 682.0
+offset_bottom = 611.0
+text = "Click Here!"

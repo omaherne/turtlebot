@@ -1,11 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://d4bg5pfkpu17l"]
 
-[ext_resource type="Texture2D" uid="uid://cgsk5wsxu1yj0" path="res://textures/concrete/hangar_concrete_floor_diff_4k.jpg" id="2_pk1oi"]
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="2_reb0t"]
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_rsdxt"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_cs5d1"]
 [ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://objects/blocks.tres" id="3_ieghl"]
-[ext_resource type="Texture2D" uid="uid://dc15bib458ig7" path="res://textures/concrete/hangar_concrete_floor_disp_4k.png" id="6_1ud6j"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u68ab"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,29 +20,35 @@ glow_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0t8ma"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o0hyw"]
+load_path = "res://.godot/imported/hangar_concrete_floor_diff_4k.jpg-2cde346502e372ccf2c42142eebfaa70.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_esovo"]
-albedo_texture = ExtResource("2_pk1oi")
+albedo_texture = SubResource("CompressedTexture2D_o0hyw")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_78fmt"]
 material = SubResource("StandardMaterial3D_esovo")
 size = Vector2(10, 10)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_3n3cr"]
+load_path = "res://.godot/imported/hangar_concrete_floor_disp_4k.png-831d9094e779ec340ef9cc0bb0bb2a5e.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yut22"]
-albedo_texture = ExtResource("6_1ud6j")
+albedo_texture = SubResource("CompressedTexture2D_3n3cr")
 
 [sub_resource type="BoxMesh" id="BoxMesh_co181"]
 material = SubResource("StandardMaterial3D_yut22")
 size = Vector3(16.1, 3, 1.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1cce7"]
-albedo_texture = ExtResource("6_1ud6j")
+albedo_texture = SubResource("CompressedTexture2D_3n3cr")
 
 [sub_resource type="BoxMesh" id="BoxMesh_j4cgs"]
 material = SubResource("StandardMaterial3D_1cce7")
 size = Vector3(7.8, 3, 1.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4hino"]
-albedo_texture = ExtResource("6_1ud6j")
+albedo_texture = SubResource("CompressedTexture2D_3n3cr")
 
 [sub_resource type="BoxMesh" id="BoxMesh_t8u0t"]
 material = SubResource("StandardMaterial3D_4hino")

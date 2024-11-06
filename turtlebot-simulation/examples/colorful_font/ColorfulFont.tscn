@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://0d84pfj7na3r"]
+
+[ext_resource type="Texture2D" uid="uid://bsb7psa84262q" path="res://examples/colorful_font/ColorfulBlockFont.png" id="1_ici5n"]
+[ext_resource type="FontFile" uid="uid://bga78phngq4am" path="res://examples/colorful_font/colorful_font.tres" id="1_w0odp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ixye"]
+bg_color = Color(0.647, 0.71, 0.863, 1)
+
+[node name="ColorfulFont" type="MarginContainer"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Example" type="Control" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Example"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Example/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="ColorRect" type="ColorRect" parent="Example/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Example/VBoxContainer/HBoxContainer/ColorRect"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = ExtResource("1_ici5n")
+stretch_mode = 4
+
+[node name="ColorRect2" type="ColorRect" parent="Example/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Label" type="Label" parent="Example/VBoxContainer/HBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_w0odp")
+text = "This Colorful Font is more Fully-Featured,
+than the simple Number Example.
+It has 79 different Hand-drawn chars,
+and shows off many Features of the
+Font-Editor!
+
+(like kerning, and char-settings)
+
+#font #custom_font"
+
+[node name="TextEdit" type="TextEdit" parent="Example/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+theme_override_fonts/font = ExtResource("1_w0odp")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1ixye")
+text = "Type something... "
