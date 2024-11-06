@@ -1,11 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://beh78rvdui0k8"]
+[gd_scene load_steps=23 format=3 uid="uid://beh78rvdui0k8"]
 
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_1s60s"]
 [ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://objects/blocks.tres" id="2_26b04"]
-[ext_resource type="Texture2D" uid="uid://b7leex2v872ux" path="res://textures/woods/wood_cabinet_worn_long_diff_4k.jpg" id="2_o3ucx"]
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_ua82x"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_h8rjh"]
-[ext_resource type="Texture2D" uid="uid://icnbd8565amw" path="res://textures/woods/weathered_brown_planks_diff_4k.jpg" id="6_xqcg1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u68ab"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -23,55 +21,53 @@ glow_enabled = true
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0t8ma"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udx7k"]
-albedo_texture = ExtResource("2_o3ucx")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_wrefp"]
 material = SubResource("StandardMaterial3D_udx7k")
 size = Vector2(10, 10)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j02gy"]
-albedo_texture = ExtResource("6_xqcg1")
 
 [sub_resource type="BoxMesh" id="BoxMesh_j8j2x"]
 material = SubResource("StandardMaterial3D_j02gy")
 size = Vector3(4.1, 3.1, 1.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gnf8c"]
-albedo_texture = ExtResource("6_xqcg1")
 
 [sub_resource type="BoxMesh" id="BoxMesh_txp4g"]
 material = SubResource("StandardMaterial3D_gnf8c")
 size = Vector3(6.1, 3.1, 1.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04wlg"]
-albedo_texture = ExtResource("6_xqcg1")
 
 [sub_resource type="BoxMesh" id="BoxMesh_l5qy2"]
 material = SubResource("StandardMaterial3D_04wlg")
 size = Vector3(16.1, 3.1, 1.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhp5r"]
-albedo_texture = ExtResource("6_xqcg1")
 
 [sub_resource type="BoxMesh" id="BoxMesh_g77nr"]
 material = SubResource("StandardMaterial3D_vhp5r")
 size = Vector3(7.1, 3.1, 1.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjatb"]
-albedo_texture = ExtResource("6_xqcg1")
 
 [sub_resource type="BoxMesh" id="BoxMesh_33te6"]
 material = SubResource("StandardMaterial3D_yjatb")
 size = Vector3(4.1, 3.1, 1.1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpgcj"]
-albedo_texture = ExtResource("6_xqcg1")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ack6c"]
 material = SubResource("StandardMaterial3D_xpgcj")
 size = Vector3(2.1, 3.1, 1.1)
 
 [node name="Level1" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.99995, 0.0100004, -1.19254e-10, 0, 1.19249e-08, 1, 0.0100004, 0.99995, -1.19243e-08, 0, 6, 0)
+light_color = Color(1, 1, 0.870588, 1)
+shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e2fj8")
@@ -85,11 +81,6 @@ mesh = SubResource("PlaneMesh_wrefp")
 
 [node name="TurtleBot" parent="." instance=ExtResource("1_1s60s")]
 transform = Transform3D(-0.99995, 0, -0.0100004, 0, 1, 0, 0.0100004, 0, -0.99995, -5.20553, 0.5, 3.0983)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="TurtleBot"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.0533419, 4.12069, -0.00492287)
-light_color = Color(1, 1, 0.870588, 1)
-shadow_enabled = true
 
 [node name="WinPad" parent="." instance=ExtResource("3_h8rjh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.24, 6)

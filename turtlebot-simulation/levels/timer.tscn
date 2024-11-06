@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://d20bxti7lmf6v"]
+
+[ext_resource type="Script" path="res://levels/timer.gd" id="1_hkc0e"]
+
+[node name="Timer" type="Panel"]
+offset_left = 640.0
+offset_top = 10.0
+offset_right = 740.0
+offset_bottom = 46.0
+scale = Vector2(2, 2)
+script = ExtResource("1_hkc0e")
+
+[node name="Minutes" type="Label" parent="."]
+layout_mode = 0
+offset_left = 19.0
+offset_right = 42.0
+offset_bottom = 36.0
+text = "00:"
+vertical_alignment = 1
+
+[node name="Seconds" type="Label" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_right = 65.0
+offset_bottom = 36.0
+text = "00."
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Milliseconds" type="Label" parent="."]
+layout_mode = 0
+offset_left = 65.0
+offset_right = 84.0
+offset_bottom = 36.0
+text = "00
+"
+horizontal_alignment = 2
+vertical_alignment = 1

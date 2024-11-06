@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://1xsjpa238mvr"]
+[gd_scene load_steps=9 format=3 uid="uid://1xsjpa238mvr"]
 
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_p0ueb"]
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_aulmk"]
-[ext_resource type="Texture2D" uid="uid://bjgyvoqwbo35s" path="res://textures/concrete/long_white_tiles_diff_4k.jpg" id="3_0iedh"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_galdt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5hosa"]
@@ -19,7 +18,6 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ja50s"]
-albedo_texture = ExtResource("3_0iedh")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_yxhcq"]
 material = SubResource("StandardMaterial3D_ja50s")
@@ -30,16 +28,16 @@ size = Vector2(10, 10)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cstau")
 
-[node name="TurtleBot" parent="." instance=ExtResource("1_p0ueb")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 0)
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="TurtleBot"]
-transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, 0.146728, 2.94039, -0.0676798)
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.19249e-08, 1, 0, -1, 1.19249e-08, -4.85327, 3.44039, -0.0676798)
 light_color = Color(1, 1, 0.870588, 1)
 shadow_enabled = true
 
+[node name="TurtleBot" parent="." instance=ExtResource("1_p0ueb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 0)
+
 [node name="Floor" parent="." instance=ExtResource("2_aulmk")]
-transform = Transform3D(2, 0, 0, 0, 1, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("PlaneMesh_yxhcq")

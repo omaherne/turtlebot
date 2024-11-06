@@ -15,6 +15,9 @@ func _process(delta) -> void:
 	$Seconds.text = "%02d." % sec
 	$Milliseconds.text = "%02d" % msec
 
+func start() -> void:
+	set_process(true)
+
 func stop() -> void:
 	set_process(false)
 

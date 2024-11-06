@@ -1,7 +1,12 @@
-[gd_resource type="MeshLibrary" load_steps=3 format=3 uid="uid://da3w8fgt2b4wm"]
+[gd_resource type="MeshLibrary" load_steps=5 format=3 uid="uid://da3w8fgt2b4wm"]
+
+[ext_resource type="Texture2D" uid="uid://bxxtbmbbuwy31" path="res://textures/ganges_river_pebbles_disp_4k.png" id="1_cd0xh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f44ha"]
+albedo_texture = ExtResource("1_cd0xh")
 
 [sub_resource type="BoxMesh" id="BoxMesh_drt5c"]
-lightmap_size_hint = Vector2i(39, 41)
+material = SubResource("StandardMaterial3D_f44ha")
 size = Vector3(1, 3, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_swcgx"]
