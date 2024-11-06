@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://csh7g2bpjeiv6"]
 
-[ext_resource type="Texture2D" uid="uid://bd2itk03c2154" path="res://textures/concrete/dirty_concrete_disp_4k.png" id="1_asxmv"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jmf5n"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_hgbf7"]
+material = SubResource("ShaderMaterial_jmf5n")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_swcgx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6shsb"]
-albedo_texture = ExtResource("1_asxmv")
 
 [sub_resource type="BoxMesh" id="BoxMesh_ujltb"]
 material = SubResource("StandardMaterial3D_6shsb")

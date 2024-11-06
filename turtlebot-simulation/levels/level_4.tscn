@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dpxcga1p1upyt"]
+[gd_scene load_steps=22 format=3 uid="uid://14tyycaugtph"]
 
 [ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://objects/blocks.tres" id="1_6q5g5"]
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_htsdh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bbj43nqrcjcq" path="res://textures/gravelly_sand_disp_4k.png" id="3_5k6pj"]
 [ext_resource type="Texture2D" uid="uid://bxxtbmbbuwy31" path="res://textures/ganges_river_pebbles_disp_4k.png" id="4_al880"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="5_0ryjy"]
+[ext_resource type="PackedScene" uid="uid://d20bxti7lmf6v" path="res://levels/timer.tscn" id="8_weenl"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6xotr"]
 albedo_texture = ExtResource("3_5k6pj")
@@ -181,3 +182,7 @@ mesh = SubResource("PlaneMesh_86aj8")
 
 [node name="WinPad" parent="." instance=ExtResource("5_0ryjy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.08663, -0.24, 7.17568)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" parent="CanvasLayer" instance=ExtResource("8_weenl")]
