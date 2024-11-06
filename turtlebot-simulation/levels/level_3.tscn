@@ -1,9 +1,10 @@
-[gd_scene load_steps=23 format=3 uid="uid://beh78rvdui0k8"]
+[gd_scene load_steps=24 format=3 uid="uid://beh78rvdui0k8"]
 
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_1s60s"]
 [ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://objects/blocks.tres" id="2_26b04"]
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_ua82x"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_h8rjh"]
+[ext_resource type="PackedScene" uid="uid://d20bxti7lmf6v" path="res://levels/timer.tscn" id="5_ud34f"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u68ab"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -62,7 +63,7 @@ size = Vector3(4.1, 3.1, 1.1)
 material = SubResource("StandardMaterial3D_xpgcj")
 size = Vector3(2.1, 3.1, 1.1)
 
-[node name="Level1" type="Node3D"]
+[node name="Level3" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-0.99995, 0.0100004, -1.19254e-10, 0, 1.19249e-08, 1, 0.0100004, 0.99995, -1.19243e-08, 0, 6, 0)
@@ -159,3 +160,7 @@ mesh = SubResource("BoxMesh_ack6c")
 [node name="Innerwall13" type="MeshInstance3D" parent="GridMap"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, 1.512, -4.545)
 mesh = SubResource("BoxMesh_ack6c")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" parent="CanvasLayer" instance=ExtResource("5_ud34f")]
