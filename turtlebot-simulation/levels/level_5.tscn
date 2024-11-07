@@ -1,11 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://pjnk8ofphmr4"]
+[gd_scene load_steps=13 format=3 uid="uid://b4erndmfhr5se"]
 
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_rxrpi"]
-[ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://objects/blocks.tres" id="2_tipe3"]
-[ext_resource type="Texture2D" uid="uid://8vnaeykw7146" path="res://textures/wood_floor_diff_4k.jpg" id="3_2npn2"]
+[ext_resource type="Texture2D" uid="uid://8vnaeykw7146" path="res://textures/wood_floor_diff_4k.jpg" id="2_wxlpy"]
+[ext_resource type="MeshLibrary" uid="uid://bvygm4tjvtow4" path="res://objects/rectangle_block.tres" id="3_g2lb6"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_l7pjh"]
-[ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="4_lcdfx"]
-[ext_resource type="PackedScene" uid="uid://d20bxti7lmf6v" path="res://levels/timer.tscn" id="6_pbydk"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5hosa"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,14 +20,21 @@ glow_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_coh6f"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_esovo"]
-albedo_texture = ExtResource("3_2npn2")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agcg2"]
+albedo_texture = ExtResource("2_wxlpy")
+uv1_triplanar = true
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_qy6nf"]
-material = SubResource("StandardMaterial3D_esovo")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gkbk"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_t347c"]
+material = SubResource("StandardMaterial3D_3gkbk")
 size = Vector2(10, 10)
 
-[node name="Level 5" type="Node3D"]
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_381ry"]
+data = PackedVector3Array(7.5, 0, 7.5, -7.5, 0, 7.5, 7.5, 0, -7.5, -7.5, 0, 7.5, -7.5, 0, -7.5, 7.5, 0, -7.5)
+
+[node name="Level 4" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cstau")
@@ -40,24 +45,26 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 light_color = Color(1, 1, 0.870588, 1)
 shadow_enabled = true
 
-[node name="Floor" parent="." instance=ExtResource("4_lcdfx")]
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("PlaneMesh_qy6nf")
-
 [node name="TurtleBot" parent="." instance=ExtResource("1_rxrpi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2)
 linear_damp = 5.0
 
-[node name="WinPad" parent="." instance=ExtResource("3_l7pjh")]
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00496554, 0.0479751, 0.0155997)
+material_override = SubResource("StandardMaterial3D_agcg2")
+mesh = SubResource("PlaneMesh_t347c")
+skeleton = NodePath("")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_381ry")
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("2_tipe3")
+mesh_library = ExtResource("3_g2lb6")
 cell_size = Vector3(1, 1, 1)
 data = {
 "cells": PackedInt32Array(65530, 5, 0, 65530, 4, 0, 65530, 2, 0, 65530, 1, 0, 65530, 0, 0, 65530, 65535, 0, 65530, 65534, 0, 65530, 65533, 0, 65530, 65532, 0, 65530, 65531, 0, 65530, 65530, 0, 65531, 65530, 0, 65532, 65530, 0, 65531, 5, 0, 65532, 5, 0, 65533, 5, 0, 65534, 5, 0, 65535, 5, 0, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 5, 65530, 0, 5, 65531, 0, 5, 65532, 0, 5, 65533, 0, 5, 65534, 0, 5, 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 5, 4, 0, 65533, 65530, 0, 65534, 65530, 0, 65535, 65530, 0, 0, 65530, 0, 1, 65530, 0, 2, 65530, 0, 3, 65530, 0, 4, 65532, 0, 2, 65532, 0, 2, 65533, 0, 2, 65534, 0, 3, 65534, 0, 4, 65534, 0, 1, 65532, 0, 0, 65532, 0, 65534, 65532, 0, 65534, 65533, 0, 65534, 65534, 0, 65534, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 1, 1, 0, 2, 1, 0, 0, 3, 0, 65532, 0, 0, 65532, 2, 0, 65532, 1, 0, 65533, 65535, 0, 65532, 65535, 0, 65534, 4, 0, 65534, 3, 0, 65534, 2, 0, 65532, 65531, 0, 65532, 65532, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 4, 3, 0, 3, 3, 0, 5, 65535, 0, 65530, 3, 0, 1, 65534, 0, 65535, 65534, 0, 65534, 65531, 0)
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Timer" parent="CanvasLayer" instance=ExtResource("6_pbydk")]
+[node name="WinPad" parent="." instance=ExtResource("3_l7pjh")]
