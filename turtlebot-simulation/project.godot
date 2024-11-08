@@ -14,10 +14,18 @@ config/name="TurtleBot Simulation"
 run/main_scene="res://levels/level_1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 
+[autoload]
+
+FEAGI="*res://addons/FeagiIntegration/RunTime/Autoloads/FEAGI_RunTime.gd"
+
 [display]
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/FeagiIntegration/plugin.cfg")
 
 [global_group]
 
