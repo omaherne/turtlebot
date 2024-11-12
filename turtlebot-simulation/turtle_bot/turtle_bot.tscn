@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://76swpw6vkqmf"]
+[gd_scene load_steps=8 format=3 uid="uid://76swpw6vkqmf"]
 
 [ext_resource type="Script" path="res://turtle_bot/turtle_bot.gd" id="1_tqup1"]
+[ext_resource type="Script" path="res://addons/FeagiIntegration/Editor/Panel/Components/Devices/Device_Specific_UIs/Sensory/FEAGI_UI_Panel_SpecificSensoryDevice_Proximity.gd" id="2_u8pox"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xgj67"]
 albedo_color = Color(0.196078, 0.196078, 0.254902, 1)
@@ -42,9 +43,6 @@ light_color = Color(1, 0.870588, 0.705882, 1)
 light_energy = 0.6
 sky_mode = 1
 
-[node name="Front Sensor" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
-
 [node name="Bottom Sensor" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 projection = 1
@@ -67,7 +65,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -0.3, -0.05, 0)
 use_as_traction = true
 wheel_radius = 0.125
-wheel_friction_slip = 1.3
+wheel_friction_slip = 1.0
 suspension_stiffness = 30.0
 suspension_max_force = 40.0
 
@@ -87,3 +85,8 @@ suspension_max_force = 40.0
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 mesh = SubResource("CylinderMesh_e55pw")
 skeleton = NodePath("../..")
+
+[node name="Left Sensor" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_u8pox")

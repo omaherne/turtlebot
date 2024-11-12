@@ -1,9 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://b4erndmfhr5se"]
 
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_rxrpi"]
-[ext_resource type="Texture2D" uid="uid://8vnaeykw7146" path="res://textures/wood_floor_diff_4k.jpg" id="2_wxlpy"]
-[ext_resource type="MeshLibrary" uid="uid://bvygm4tjvtow4" path="res://objects/rectangle_block.tres" id="3_g2lb6"]
+[ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_bligy"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_l7pjh"]
+[ext_resource type="MeshLibrary" uid="uid://0e3dkwco1b8o" path="res://objects/tiles.tres" id="4_xk6el"]
+[ext_resource type="PackedScene" uid="uid://d20bxti7lmf6v" path="res://levels/timer.tscn" id="5_pjoxm"]
+[ext_resource type="PackedScene" uid="uid://dohgoe7vvjbpl" path="res://objects/graffiti-red.tscn" id="5_xivmb"]
+[ext_resource type="PackedScene" uid="uid://mm3uvhaqhxql" path="res://objects/graffiti-yellow.tscn" id="6_w628n"]
+[ext_resource type="PackedScene" uid="uid://cve1cm3g42q4i" path="res://objects/graffiti-green.tscn" id="7_dju0x"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5hosa"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -20,21 +24,7 @@ glow_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_coh6f"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agcg2"]
-albedo_texture = ExtResource("2_wxlpy")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3gkbk"]
-albedo_color = Color(0, 1, 0, 1)
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_t347c"]
-material = SubResource("StandardMaterial3D_3gkbk")
-size = Vector2(10, 10)
-
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_381ry"]
-data = PackedVector3Array(7.5, 0, 7.5, -7.5, 0, 7.5, 7.5, 0, -7.5, -7.5, 0, 7.5, -7.5, 0, -7.5, 7.5, 0, -7.5)
-
-[node name="Level 4" type="Node3D"]
+[node name="Level5" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_cstau")
@@ -45,26 +35,52 @@ transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -
 light_color = Color(1, 1, 0.870588, 1)
 shadow_enabled = true
 
+[node name="Floor" parent="." instance=ExtResource("2_bligy")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
 [node name="TurtleBot" parent="." instance=ExtResource("1_rxrpi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.0241, 0.25, 7.6213)
 linear_damp = 5.0
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00496554, 0.0479751, 0.0155997)
-material_override = SubResource("StandardMaterial3D_agcg2")
-mesh = SubResource("PlaneMesh_t347c")
-skeleton = NodePath("")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
-shape = SubResource("ConcavePolygonShape3D_381ry")
+[node name="WinPad" parent="." instance=ExtResource("3_l7pjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -0.24, -7.5)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("3_g2lb6")
+mesh_library = ExtResource("4_xk6el")
 cell_size = Vector3(1, 1, 1)
 data = {
-"cells": PackedInt32Array(65530, 5, 0, 65530, 4, 0, 65530, 2, 0, 65530, 1, 0, 65530, 0, 0, 65530, 65535, 0, 65530, 65534, 0, 65530, 65533, 0, 65530, 65532, 0, 65530, 65531, 0, 65530, 65530, 0, 65531, 65530, 0, 65532, 65530, 0, 65531, 5, 0, 65532, 5, 0, 65533, 5, 0, 65534, 5, 0, 65535, 5, 0, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 5, 65530, 0, 5, 65531, 0, 5, 65532, 0, 5, 65533, 0, 5, 65534, 0, 5, 0, 0, 5, 1, 0, 5, 2, 0, 5, 3, 0, 5, 4, 0, 65533, 65530, 0, 65534, 65530, 0, 65535, 65530, 0, 0, 65530, 0, 1, 65530, 0, 2, 65530, 0, 3, 65530, 0, 4, 65532, 0, 2, 65532, 0, 2, 65533, 0, 2, 65534, 0, 3, 65534, 0, 4, 65534, 0, 1, 65532, 0, 0, 65532, 0, 65534, 65532, 0, 65534, 65533, 0, 65534, 65534, 0, 65534, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 1, 1, 0, 2, 1, 0, 0, 3, 0, 65532, 0, 0, 65532, 2, 0, 65532, 1, 0, 65533, 65535, 0, 65532, 65535, 0, 65534, 4, 0, 65534, 3, 0, 65534, 2, 0, 65532, 65531, 0, 65532, 65532, 0, 3, 65535, 0, 3, 0, 0, 3, 1, 0, 4, 3, 0, 3, 3, 0, 5, 65535, 0, 65530, 3, 0, 1, 65534, 0, 65535, 65534, 0, 65534, 65531, 0)
+"cells": PackedInt32Array(9, 9, 0, 9, 8, 0, 9, 7, 0, 9, 6, 0, 9, 5, 0, 9, 4, 0, 9, 3, 0, 9, 2, 0, 9, 1, 0, 9, 0, 0, 9, 65535, 0, 9, 65534, 0, 9, 65533, 0, 9, 65532, 0, 9, 65531, 0, 9, 65530, 0, 9, 65529, 0, 9, 65528, 0, 9, 65527, 0, 9, 65526, 0, 8, 65526, 0, 7, 65526, 0, 6, 65526, 0, 5, 65526, 0, 4, 65526, 0, 3, 65526, 0, 2, 65526, 0, 1, 65526, 0, 0, 65526, 0, 65535, 65526, 0, 65534, 65526, 0, 65533, 65526, 0, 65532, 65526, 0, 65531, 65526, 0, 65530, 65526, 0, 65529, 65526, 0, 65528, 65526, 0, 65526, 65526, 0, 65527, 65526, 0, 65526, 65527, 0, 65526, 65528, 0, 65526, 65529, 0, 65526, 65530, 0, 65526, 65531, 0, 65526, 65532, 0, 65526, 65533, 0, 65526, 65534, 0, 65526, 65535, 0, 65526, 0, 0, 65526, 1, 0, 65526, 2, 0, 65526, 3, 0, 65526, 4, 0, 65526, 5, 0, 65526, 6, 0, 65526, 7, 0, 65526, 8, 0, 65526, 9, 0, 65527, 9, 0, 65528, 9, 0, 65529, 9, 0, 65530, 9, 0, 65531, 9, 0, 65532, 9, 0, 65533, 9, 0, 65534, 9, 0, 65535, 9, 0, 0, 9, 0, 1, 9, 0, 2, 9, 0, 3, 9, 0, 4, 9, 0, 5, 9, 0, 6, 9, 0, 7, 9, 0, 8, 9, 0, 65529, 8, 0, 65529, 7, 0, 65529, 6, 0, 65529, 5, 0, 65529, 4, 0, 65529, 3, 0, 65530, 3, 0, 65531, 3, 0, 65532, 3, 0, 65533, 3, 0, 65534, 3, 0, 65532, 4, 0, 65532, 5, 0, 65532, 6, 0, 65533, 6, 0, 65534, 6, 0, 65535, 6, 0, 65535, 3, 0, 2, 8, 0, 2, 7, 0, 2, 6, 0, 2, 5, 0, 2, 4, 0, 2, 3, 0, 5, 3, 0, 5, 4, 0, 5, 5, 0, 5, 6, 0, 6, 6, 0, 7, 6, 0, 8, 6, 0, 8, 3, 0, 8, 2, 0, 8, 1, 0, 8, 4, 0, 8, 5, 0, 8, 0, 0, 7, 0, 0, 6, 0, 0, 5, 0, 0, 4, 0, 0, 6, 65527, 0, 6, 65528, 0, 6, 65529, 0, 6, 65530, 0, 6, 65531, 0, 6, 65532, 0, 3, 65529, 0, 3, 65530, 0, 3, 65531, 0, 3, 65532, 0, 3, 65533, 0, 3, 65534, 0, 3, 65535, 0, 3, 0, 0, 6, 65533, 0, 2, 65529, 0, 1, 65529, 0, 0, 65529, 0, 0, 65530, 0, 0, 65533, 0, 65535, 65533, 0, 65534, 65533, 0, 65533, 65533, 0, 65532, 65533, 0, 65531, 65533, 0, 65530, 65533, 0, 65529, 65533, 0, 65529, 0, 0, 65530, 0, 0, 65531, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 65528, 65533, 0, 65527, 65533, 0, 65532, 65534, 0, 65532, 65535, 0, 65535, 65530, 0, 65534, 65530, 0, 65533, 65530, 0, 65533, 65529, 0, 65534, 65529, 0, 65535, 65529, 0, 1, 65530, 0, 2, 65530, 0, 65530, 65529, 0, 65530, 65530, 0, 65529, 65529, 0, 65529, 65530, 0)
 }
 
-[node name="WinPad" parent="." instance=ExtResource("3_l7pjh")]
+[node name="Graffiti" type="Node3D" parent="."]
+
+[node name="Red" parent="Graffiti" instance=ExtResource("5_xivmb")]
+transform = Transform3D(0.999994, 0, 0.00336857, 0, 1, 0, -0.00336857, 0, 0.999994, -8, 1.30881, -2.02231)
+
+[node name="Red2" parent="Graffiti" instance=ExtResource("5_xivmb")]
+transform = Transform3D(-0.00336861, 0, 0.999994, 0, 1, 0, -0.999994, 0, -0.00336861, -9, 1.30881, 4.99609)
+
+[node name="Red3" parent="Graffiti" instance=ExtResource("5_xivmb")]
+transform = Transform3D(-0.999994, 0, -0.00336866, 0, 1, 0, 0.00336866, 0, -0.999994, 1, 1.30881, 8.99609)
+
+[node name="Red4" parent="Graffiti" instance=ExtResource("5_xivmb")]
+transform = Transform3D(-0.999994, 0, -0.00336866, 0, 1, 0, 0.00336866, 0, -0.999994, 4.58482, 1.30881, 8.99609)
+
+[node name="Yellow" parent="Graffiti" instance=ExtResource("6_w628n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.13713, 1)
+
+[node name="Yellow2" parent="Graffiti" instance=ExtResource("6_w628n")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 1.13713, -6)
+
+[node name="Green" parent="Graffiti" instance=ExtResource("7_dju0x")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 6.00888, 1.13713, -7.79709)
+
+[node name="Green2" parent="Graffiti" instance=ExtResource("7_dju0x")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.63292, 1.13713, 0.0120216)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Timer" parent="CanvasLayer" instance=ExtResource("5_pjoxm")]
+offset_left = 560.0
+offset_right = 660.0
+scale = Vector2(1.6, 1.6)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://chjr3avspgseb"]
+
+[ext_resource type="PackedScene" uid="uid://csh7g2bpjeiv6" path="res://objects/block.tscn" id="1_u8hho"]
+
+[node name="Tiles" type="Node3D"]
+
+[node name="Block" parent="." instance=ExtResource("1_u8hho")]

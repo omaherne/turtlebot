@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://1xsjpa238mvr"]
+[gd_scene load_steps=7 format=3 uid="uid://1xsjpa238mvr"]
 
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_p0ueb"]
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_aulmk"]
@@ -17,12 +17,6 @@ sky = SubResource("Sky_csnpl")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ja50s"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_yxhcq"]
-material = SubResource("StandardMaterial3D_ja50s")
-size = Vector2(10, 10)
-
 [node name="Level 1" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -38,8 +32,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.5, 0)
 
 [node name="Floor" parent="." instance=ExtResource("2_aulmk")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor"]
-mesh = SubResource("PlaneMesh_yxhcq")
 
 [node name="WinPad" parent="." instance=ExtResource("3_galdt")]

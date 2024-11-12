@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cve1cm3g42q4i"]
+
+[ext_resource type="Shader" path="res://addons/flexible_toon_shader/flexible_toon.gdshader" id="1_ywsvg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s221y"]
+render_priority = 0
+shader = ExtResource("1_ywsvg")
+shader_parameter/albedo = Color(0.356619, 0.604908, 0.228931, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = false
+shader_parameter/use_specular = false
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = false
+shader_parameter/border_width = 0.01
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4c4w5"]
+material = SubResource("ShaderMaterial_s221y")
+size = Vector2(1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.04)
+mesh = SubResource("PlaneMesh_4c4w5")
+skeleton = NodePath("")

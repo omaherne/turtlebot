@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhpoulaa02qtu"]
+[gd_scene load_steps=5 format=3 uid="uid://bhpoulaa02qtu"]
+
+[ext_resource type="Texture2D" uid="uid://8vnaeykw7146" path="res://textures/wood_floor_diff_4k.jpg" id="1_vtt36"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_xg3fx"]
 size = Vector2(10, 10)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eqqhu"]
+albedo_texture = ExtResource("1_vtt36")
+uv1_triplanar = true
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_orfxb"]
 
@@ -9,6 +15,7 @@ size = Vector2(10, 10)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_xg3fx")
+surface_material_override/0 = SubResource("StandardMaterial3D_eqqhu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("WorldBoundaryShape3D_orfxb")

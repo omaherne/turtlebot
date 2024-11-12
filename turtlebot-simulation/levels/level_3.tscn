@@ -1,11 +1,13 @@
-[gd_scene load_steps=43 format=3 uid="uid://beh78rvdui0k8"]
+[gd_scene load_steps=13 format=3 uid="uid://beh78rvdui0k8"]
 
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_1s60s"]
-[ext_resource type="MeshLibrary" uid="uid://da3w8fgt2b4wm" path="res://objects/blocks.tres" id="2_26b04"]
-[ext_resource type="Texture2D" uid="uid://8vnaeykw7146" path="res://textures/wood_floor_diff_4k.jpg" id="2_ruc1k"]
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_ua82x"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_h8rjh"]
-[ext_resource type="Texture2D" uid="uid://byxyve76ksbku" path="res://textures/xiaocheng's skin/block_PavingStones28_col.jpg" id="5_5f52y"]
+[ext_resource type="MeshLibrary" uid="uid://0e3dkwco1b8o" path="res://objects/tiles.tres" id="4_r6xuc"]
+[ext_resource type="PackedScene" uid="uid://d20bxti7lmf6v" path="res://levels/timer.tscn" id="5_irqhi"]
+[ext_resource type="PackedScene" uid="uid://dohgoe7vvjbpl" path="res://objects/graffiti-red.tscn" id="5_xj2do"]
+[ext_resource type="PackedScene" uid="uid://mm3uvhaqhxql" path="res://objects/graffiti-yellow.tscn" id="6_eleei"]
+[ext_resource type="PackedScene" uid="uid://cve1cm3g42q4i" path="res://objects/graffiti-green.tscn" id="7_g2tia"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u68ab"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -22,137 +24,19 @@ glow_enabled = true
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_0t8ma"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_46nck"]
-albedo_texture = ExtResource("2_ruc1k")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_udx7k"]
-
-[sub_resource type="PlaneMesh" id="PlaneMesh_wrefp"]
-material = SubResource("StandardMaterial3D_udx7k")
-size = Vector2(10, 10)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j02gy"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_j8j2x"]
-material = SubResource("StandardMaterial3D_j02gy")
-size = Vector3(4.1, 3.1, 1.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d0jl5"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2c3m0"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ifsej"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5vbhm"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qylxj"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gnf8c"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_txp4g"]
-material = SubResource("StandardMaterial3D_gnf8c")
-size = Vector3(6.1, 3.1, 1.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wpvo8"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_04wlg"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_l5qy2"]
-material = SubResource("StandardMaterial3D_04wlg")
-size = Vector3(16.1, 3.1, 1.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ca5c"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yj6of"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovs5y"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egfs0"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ucfys"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vhp5r"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_g77nr"]
-material = SubResource("StandardMaterial3D_vhp5r")
-size = Vector3(7.1, 3.1, 1.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_643ir"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yjatb"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_33te6"]
-material = SubResource("StandardMaterial3D_yjatb")
-size = Vector3(4.1, 3.1, 1.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vw1gw"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nl3aa"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ej8w0"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xpgcj"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_ack6c"]
-material = SubResource("StandardMaterial3D_xpgcj")
-size = Vector3(2.1, 3.1, 1.1)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_v1l53"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qcepd"]
-albedo_texture = ExtResource("5_5f52y")
-uv1_triplanar = true
-
-[node name="Level1" type="Node3D"]
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.99995, 0.0100004, -1.19254e-10, 0, 1.19249e-08, 1, 0.0100004, 0.99995, -1.19243e-08, 0, 6, 0)
-light_color = Color(1, 1, 0.870588, 1)
-shadow_enabled = true
+[node name="Level3" type="Node3D"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_e2fj8")
 camera_attributes = SubResource("CameraAttributesPractical_0t8ma")
 
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 10, 10, 10)
+light_color = Color(1, 1, 0.870588, 1)
+shadow_enabled = true
+
 [node name="Floor" parent="." instance=ExtResource("2_ua82x")]
 transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Floor"]
-material_override = SubResource("StandardMaterial3D_46nck")
-mesh = SubResource("PlaneMesh_wrefp")
 
 [node name="TurtleBot" parent="." instance=ExtResource("1_1s60s")]
 transform = Transform3D(-0.99995, 0, -0.0100004, 0, 1, 0, 0.0100004, 0, -0.99995, -5.20553, 0.5, 3.0983)
@@ -161,93 +45,35 @@ transform = Transform3D(-0.99995, 0, -0.0100004, 0, 1, 0, 0.0100004, 0, -0.99995
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.24, 6)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("2_26b04")
+mesh_library = ExtResource("4_r6xuc")
 cell_size = Vector3(1, 1, 1)
 data = {
 "cells": PackedInt32Array(65528, 6, 0, 65532, 7, 0, 65528, 0, 0, 65528, 65528, 0, 65528, 65529, 0, 65528, 65530, 0, 65528, 65531, 0, 65528, 65532, 0, 65528, 65533, 0, 65528, 65534, 0, 65528, 65535, 0, 65528, 1, 0, 65528, 2, 0, 65528, 3, 0, 65528, 4, 0, 65528, 5, 0, 65528, 7, 0, 65529, 7, 0, 65530, 7, 0, 65531, 7, 0, 65533, 7, 0, 65534, 7, 0, 65535, 7, 0, 0, 7, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 7, 6, 0, 7, 5, 0, 7, 4, 0, 7, 3, 0, 7, 2, 0, 7, 1, 0, 7, 0, 0, 7, 65535, 0, 7, 65534, 0, 7, 65533, 0, 7, 65532, 0, 7, 65531, 0, 7, 65530, 0, 7, 65529, 0, 7, 65528, 0, 6, 65528, 0, 5, 65528, 0, 4, 65528, 0, 3, 65528, 0, 2, 65528, 0, 1, 65528, 0, 0, 65528, 0, 65535, 65528, 0, 65534, 65528, 0, 65533, 65528, 0, 65532, 65528, 0, 65531, 65528, 0, 65530, 65528, 0, 65529, 65528, 0, 65529, 4, 0, 65530, 4, 0, 65531, 4, 0, 65534, 6, 0, 65534, 5, 0, 65534, 4, 0, 65534, 3, 0, 65534, 2, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65529, 65534, 0, 65530, 65534, 0, 65531, 65534, 0, 65532, 65534, 0, 65531, 65529, 0, 65531, 65530, 0, 65531, 65531, 0, 6, 65531, 0, 5, 65531, 0, 4, 65531, 0, 3, 65531, 0, 65535, 4, 0, 0, 4, 0, 3, 4, 0, 4, 4, 0, 4, 5, 0, 4, 6, 0, 65535, 1, 0, 0, 1, 0, 5, 1, 0, 6, 1, 0, 4, 1, 0, 6, 65534, 0, 5, 65534, 0, 4, 65534, 0, 3, 65534, 0, 2, 65534, 0, 1, 65534, 0, 0, 65534, 0, 65535, 65534, 0, 65535, 65533, 0, 65535, 65532, 0, 65535, 65531, 0, 0, 65531, 0)
 }
 
-[node name="Innerwall" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.94764, 1.51152, -1.4544)
-mesh = SubResource("BoxMesh_j8j2x")
-surface_material_override/0 = SubResource("StandardMaterial3D_d0jl5")
+[node name="Graffiti" type="Node3D" parent="."]
 
-[node name="Innerwall2" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.03242, 1.51152, 1.46629)
-mesh = SubResource("BoxMesh_j8j2x")
-surface_material_override/0 = SubResource("StandardMaterial3D_2c3m0")
+[node name="Red" parent="Graffiti" instance=ExtResource("5_xj2do")]
+transform = Transform3D(0.00336853, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.00336853, -1.98407, 1.30881, 4.10559)
 
-[node name="Innerwall3" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.04005, 1.51152, -4.51738)
-material_override = SubResource("StandardMaterial3D_ifsej")
-mesh = SubResource("BoxMesh_j8j2x")
+[node name="Red2" parent="Graffiti" instance=ExtResource("5_xj2do")]
+transform = Transform3D(0.0033687, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.0033687, 7.02789, 1.30881, -5.88797)
 
-[node name="Innerwall4" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -4.5153, 1.51152, -6.03771)
-material_override = SubResource("StandardMaterial3D_5vbhm")
-mesh = SubResource("BoxMesh_j8j2x")
+[node name="Red3" parent="Graffiti" instance=ExtResource("5_xj2do")]
+transform = Transform3D(0.0033687, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.0033687, -4.97755, 0.887076, -5.15342)
 
-[node name="Innerwall5" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.96721, 1.51567, 1.49578)
-material_override = SubResource("StandardMaterial3D_qylxj")
-mesh = SubResource("BoxMesh_txp4g")
+[node name="Red4" parent="Graffiti" instance=ExtResource("5_xj2do")]
+transform = Transform3D(-0.999994, 0, -0.00336866, 0, 1, 0, 0.00336866, 0, -0.999994, 2, 1.309, -1.9638)
 
-[node name="Outerwall" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.528, 1.512, -0.003)
-material_override = SubResource("StandardMaterial3D_wpvo8")
-mesh = SubResource("BoxMesh_l5qy2")
+[node name="Yellow" parent="Graffiti" instance=ExtResource("6_eleei")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.0045, 1.13713, 0)
 
-[node name="Outerwall2" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -7.464, 1.512, 0.034)
-material_override = SubResource("StandardMaterial3D_7ca5c")
-mesh = SubResource("BoxMesh_l5qy2")
+[node name="Green2" parent="Graffiti" instance=ExtResource("7_g2tia")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 1.137, 4.027)
 
-[node name="Outerwall3" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031, 1.512, -7.542)
-material_override = SubResource("StandardMaterial3D_yj6of")
-mesh = SubResource("BoxMesh_l5qy2")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Outerwall4" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031, 1.512, 7.53)
-mesh = SubResource("BoxMesh_l5qy2")
-surface_material_override/0 = SubResource("StandardMaterial3D_ovs5y")
-
-[node name="Innerwall6" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.451, 1.512, 5.021)
-material_override = SubResource("StandardMaterial3D_egfs0")
-mesh = SubResource("BoxMesh_txp4g")
-
-[node name="Innerwall7" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.427, 1.512, -1.528)
-material_override = SubResource("StandardMaterial3D_ucfys")
-mesh = SubResource("BoxMesh_g77nr")
-
-[node name="Innerwall8" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.504286, 1.51216, -3.02743)
-material_override = SubResource("StandardMaterial3D_643ir")
-mesh = SubResource("BoxMesh_33te6")
-
-[node name="Innerwall9" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.94941, 1.51152, 4.54203)
-mesh = SubResource("BoxMesh_j8j2x")
-surface_material_override/0 = SubResource("StandardMaterial3D_vw1gw")
-
-[node name="Innerwall10" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 4.54959, 1.52385, 6.01854)
-material_override = SubResource("StandardMaterial3D_nl3aa")
-mesh = SubResource("BoxMesh_j8j2x")
-
-[node name="Innerwall11" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.029, 1.512, 4.507)
-material_override = SubResource("StandardMaterial3D_ej8w0")
-mesh = SubResource("BoxMesh_ack6c")
-
-[node name="Innerwall12" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.037, 1.512, 4.507)
-material_override = SubResource("StandardMaterial3D_v1l53")
-mesh = SubResource("BoxMesh_ack6c")
-
-[node name="Innerwall13" type="MeshInstance3D" parent="GridMap"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.004, 1.512, -4.545)
-material_override = SubResource("StandardMaterial3D_qcepd")
-mesh = SubResource("BoxMesh_ack6c")
+[node name="Timer" parent="CanvasLayer" instance=ExtResource("5_irqhi")]
+offset_left = 560.0
+offset_right = 660.0
+scale = Vector2(1.6, 1.6)
