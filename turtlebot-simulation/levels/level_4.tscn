@@ -62,7 +62,7 @@ transform = Transform3D(-0.00336861, 0, 0.999994, 0, 1, 0, -0.999994, 0, -0.0033
 transform = Transform3D(-0.999994, 0, -0.00336866, 0, 1, 0, 0.00336866, 0, -0.999994, 1, 1.30881, 8.99609)
 
 [node name="Red4" parent="Graffiti" instance=ExtResource("6_56pdo")]
-transform = Transform3D(0.999994, 0, 0.00336875, 0, 1, 0, -0.00336875, 0, 0.999994, -6.41518, 1.30881, -9.01745)
+transform = Transform3D(0.999994, 0, 0.00336875, 0, 1, 0, -0.00336875, 0, 0.999994, -7.44827, 1.30881, -9.01745)
 
 [node name="Yellow" parent="Graffiti" instance=ExtResource("7_k4q35")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0.933877, 1.13713, 0)
