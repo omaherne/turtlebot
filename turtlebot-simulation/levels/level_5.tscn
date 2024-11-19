@@ -1,13 +1,18 @@
-[gd_scene load_steps=13 format=3 uid="uid://b4erndmfhr5se"]
+[gd_scene load_steps=18 format=3 uid="uid://b4erndmfhr5se"]
 
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_rxrpi"]
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_bligy"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_l7pjh"]
 [ext_resource type="MeshLibrary" uid="uid://c1qpe3s6madi8" path="res://objects/library.tres" id="4_u5ewx"]
 [ext_resource type="PackedScene" uid="uid://d20bxti7lmf6v" path="res://levels/timer.tscn" id="5_pjoxm"]
-[ext_resource type="PackedScene" uid="uid://dohgoe7vvjbpl" path="res://objects/graffiti-red.tscn" id="5_xivmb"]
-[ext_resource type="PackedScene" uid="uid://mm3uvhaqhxql" path="res://objects/graffiti-yellow.tscn" id="6_w628n"]
-[ext_resource type="PackedScene" uid="uid://cve1cm3g42q4i" path="res://objects/graffiti-green.tscn" id="7_dju0x"]
+[ext_resource type="PackedScene" uid="uid://dohgoe7vvjbpl" path="res://objects/graffiti-apple.tscn" id="5_xivmb"]
+[ext_resource type="PackedScene" uid="uid://dj2ifmti0v8f2" path="res://objects/graffiti-cherry.tscn" id="6_b61ei"]
+[ext_resource type="PackedScene" uid="uid://mm3uvhaqhxql" path="res://objects/graffiti-banana.tscn" id="6_w628n"]
+[ext_resource type="PackedScene" uid="uid://cve1cm3g42q4i" path="res://objects/graffiti-orange.tscn" id="7_dju0x"]
+[ext_resource type="PackedScene" uid="uid://ce8jfgpuj7aei" path="res://objects/graffiti-kiwi.tscn" id="7_yqqix"]
+[ext_resource type="PackedScene" uid="uid://ddsp13eqvtyuk" path="res://objects/graffiti-lime.tscn" id="8_wjt5y"]
+[ext_resource type="PackedScene" uid="uid://dw03mav1ukl1q" path="res://objects/graffiti-pineapple.tscn" id="10_dhs5r"]
+[ext_resource type="PackedScene" uid="uid://cidwiha74ok7b" path="res://objects/graffiti-strawberry.tscn" id="11_g5ajg"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5hosa"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -53,28 +58,28 @@ data = {
 
 [node name="Graffiti" type="Node3D" parent="."]
 
-[node name="Red" parent="Graffiti" instance=ExtResource("5_xivmb")]
+[node name="Apple" parent="Graffiti" instance=ExtResource("5_xivmb")]
 transform = Transform3D(0.999994, 0, 0.00336857, 0, 1, 0, -0.00336857, 0, 0.999994, -8, 1.30881, -2.02231)
 
-[node name="Red2" parent="Graffiti" instance=ExtResource("5_xivmb")]
+[node name="Cherry" parent="Graffiti" instance=ExtResource("6_b61ei")]
 transform = Transform3D(-0.00336861, 0, 0.999994, 0, 1, 0, -0.999994, 0, -0.00336861, -9, 1.30881, 4.99609)
 
-[node name="Red3" parent="Graffiti" instance=ExtResource("5_xivmb")]
+[node name="Kiwi" parent="Graffiti" instance=ExtResource("7_yqqix")]
 transform = Transform3D(-0.999994, 0, -0.00336866, 0, 1, 0, 0.00336866, 0, -0.999994, 1, 1.30881, 8.99609)
 
-[node name="Red4" parent="Graffiti" instance=ExtResource("5_xivmb")]
+[node name="Lime" parent="Graffiti" instance=ExtResource("8_wjt5y")]
 transform = Transform3D(-0.999994, 0, -0.00336866, 0, 1, 0, 0.00336866, 0, -0.999994, 4.58482, 1.30881, 8.99609)
 
-[node name="Yellow" parent="Graffiti" instance=ExtResource("6_w628n")]
+[node name="Banana" parent="Graffiti" instance=ExtResource("6_w628n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1.13713, 1)
 
-[node name="Yellow2" parent="Graffiti" instance=ExtResource("6_w628n")]
+[node name="Pineapple" parent="Graffiti" instance=ExtResource("10_dhs5r")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -5, 1.13713, -6)
 
-[node name="Green" parent="Graffiti" instance=ExtResource("7_dju0x")]
+[node name="Strawberry" parent="Graffiti" instance=ExtResource("11_g5ajg")]
 transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 6.00888, 1.13713, -7.79709)
 
-[node name="Green2" parent="Graffiti" instance=ExtResource("7_dju0x")]
+[node name="Orange" parent="Graffiti" instance=ExtResource("7_dju0x")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6.63292, 1.13713, 0.0120216)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

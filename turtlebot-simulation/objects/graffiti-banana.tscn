@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://mm3uvhaqhxql"]
+
+[ext_resource type="Texture2D" uid="uid://b0x1s7y733ukm" path="res://textures/single-banana-isolated-white-background.png" id="1_v0mvg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dmskw"]
+transparency = 1
+albedo_texture = ExtResource("1_v0mvg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_3de5a"]
+material = SubResource("StandardMaterial3D_dmskw")
+size = Vector2(1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.04)
+mesh = SubResource("PlaneMesh_3de5a")
+skeleton = NodePath("")

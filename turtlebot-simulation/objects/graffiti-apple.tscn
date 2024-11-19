@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dohgoe7vvjbpl"]
+
+[ext_resource type="Texture2D" uid="uid://csv6vvgja21jf" path="res://textures/10999018.png" id="1_a8swh"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ckb7"]
+transparency = 1
+albedo_texture = ExtResource("1_a8swh")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_kk3mr"]
+material = SubResource("StandardMaterial3D_1ckb7")
+size = Vector2(1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.04)
+mesh = SubResource("PlaneMesh_kk3mr")
+skeleton = NodePath("")
