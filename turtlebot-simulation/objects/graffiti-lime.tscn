@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddsp13eqvtyuk"]
+
+[ext_resource type="Texture2D" uid="uid://cn2ouwd6sc54u" path="res://textures/fresh-lime-fruit-isolated.png" id="1_8ffon"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urxsq"]
+transparency = 1
+albedo_texture = ExtResource("1_8ffon")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_4c4w5"]
+material = SubResource("StandardMaterial3D_urxsq")
+size = Vector2(1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0.04)
+mesh = SubResource("PlaneMesh_4c4w5")
+skeleton = NodePath("")

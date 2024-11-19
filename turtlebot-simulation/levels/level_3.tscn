@@ -1,13 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://beh78rvdui0k8"]
+[gd_scene load_steps=16 format=3 uid="uid://beh78rvdui0k8"]
 
 [ext_resource type="PackedScene" uid="uid://76swpw6vkqmf" path="res://turtle_bot/turtle_bot.tscn" id="1_1s60s"]
 [ext_resource type="PackedScene" uid="uid://bhpoulaa02qtu" path="res://objects/floor.tscn" id="2_ua82x"]
 [ext_resource type="PackedScene" uid="uid://dfif4y1agnvdr" path="res://objects/win_pad.tscn" id="3_h8rjh"]
-[ext_resource type="MeshLibrary" uid="uid://0e3dkwco1b8o" path="res://objects/tiles.tres" id="4_r6xuc"]
+[ext_resource type="MeshLibrary" uid="uid://c1qpe3s6madi8" path="res://objects/library.tres" id="4_fob4w"]
 [ext_resource type="PackedScene" uid="uid://d20bxti7lmf6v" path="res://levels/timer.tscn" id="5_irqhi"]
-[ext_resource type="PackedScene" uid="uid://dohgoe7vvjbpl" path="res://objects/graffiti-red.tscn" id="5_xj2do"]
-[ext_resource type="PackedScene" uid="uid://mm3uvhaqhxql" path="res://objects/graffiti-yellow.tscn" id="6_eleei"]
-[ext_resource type="PackedScene" uid="uid://cve1cm3g42q4i" path="res://objects/graffiti-green.tscn" id="7_g2tia"]
+[ext_resource type="PackedScene" uid="uid://dohgoe7vvjbpl" path="res://objects/graffiti-apple.tscn" id="5_xj2do"]
+[ext_resource type="PackedScene" uid="uid://ddsp13eqvtyuk" path="res://objects/graffiti-lime.tscn" id="6_e3fkf"]
+[ext_resource type="PackedScene" uid="uid://mm3uvhaqhxql" path="res://objects/graffiti-banana.tscn" id="6_eleei"]
+[ext_resource type="PackedScene" uid="uid://cidwiha74ok7b" path="res://objects/graffiti-strawberry.tscn" id="7_fh3bf"]
+[ext_resource type="PackedScene" uid="uid://cve1cm3g42q4i" path="res://objects/graffiti-orange.tscn" id="7_g2tia"]
+[ext_resource type="PackedScene" uid="uid://ce8jfgpuj7aei" path="res://objects/graffiti-kiwi.tscn" id="8_04w3b"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_u68ab"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -45,7 +48,7 @@ transform = Transform3D(-0.99995, 0, -0.0100004, 0, 1, 0, 0.0100004, 0, -0.99995
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, -0.24, 6)
 
 [node name="GridMap" type="GridMap" parent="."]
-mesh_library = ExtResource("4_r6xuc")
+mesh_library = ExtResource("4_fob4w")
 cell_size = Vector3(1, 1, 1)
 data = {
 "cells": PackedInt32Array(65528, 6, 0, 65532, 7, 0, 65528, 0, 0, 65528, 65528, 0, 65528, 65529, 0, 65528, 65530, 0, 65528, 65531, 0, 65528, 65532, 0, 65528, 65533, 0, 65528, 65534, 0, 65528, 65535, 0, 65528, 1, 0, 65528, 2, 0, 65528, 3, 0, 65528, 4, 0, 65528, 5, 0, 65528, 7, 0, 65529, 7, 0, 65530, 7, 0, 65531, 7, 0, 65533, 7, 0, 65534, 7, 0, 65535, 7, 0, 0, 7, 0, 1, 7, 0, 2, 7, 0, 3, 7, 0, 4, 7, 0, 5, 7, 0, 6, 7, 0, 7, 7, 0, 7, 6, 0, 7, 5, 0, 7, 4, 0, 7, 3, 0, 7, 2, 0, 7, 1, 0, 7, 0, 0, 7, 65535, 0, 7, 65534, 0, 7, 65533, 0, 7, 65532, 0, 7, 65531, 0, 7, 65530, 0, 7, 65529, 0, 7, 65528, 0, 6, 65528, 0, 5, 65528, 0, 4, 65528, 0, 3, 65528, 0, 2, 65528, 0, 1, 65528, 0, 0, 65528, 0, 65535, 65528, 0, 65534, 65528, 0, 65533, 65528, 0, 65532, 65528, 0, 65531, 65528, 0, 65530, 65528, 0, 65529, 65528, 0, 65529, 4, 0, 65530, 4, 0, 65531, 4, 0, 65534, 6, 0, 65534, 5, 0, 65534, 4, 0, 65534, 3, 0, 65534, 2, 0, 65531, 1, 0, 65532, 1, 0, 65533, 1, 0, 65534, 1, 0, 65529, 65534, 0, 65530, 65534, 0, 65531, 65534, 0, 65532, 65534, 0, 65531, 65529, 0, 65531, 65530, 0, 65531, 65531, 0, 6, 65531, 0, 5, 65531, 0, 4, 65531, 0, 3, 65531, 0, 65535, 4, 0, 0, 4, 0, 3, 4, 0, 4, 4, 0, 4, 5, 0, 4, 6, 0, 65535, 1, 0, 0, 1, 0, 5, 1, 0, 6, 1, 0, 4, 1, 0, 6, 65534, 0, 5, 65534, 0, 4, 65534, 0, 3, 65534, 0, 2, 65534, 0, 1, 65534, 0, 0, 65534, 0, 65535, 65534, 0, 65535, 65533, 0, 65535, 65532, 0, 65535, 65531, 0, 0, 65531, 0)
@@ -53,22 +56,22 @@ data = {
 
 [node name="Graffiti" type="Node3D" parent="."]
 
-[node name="Red" parent="Graffiti" instance=ExtResource("5_xj2do")]
+[node name="Apple" parent="Graffiti" instance=ExtResource("5_xj2do")]
 transform = Transform3D(0.00336853, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.00336853, -1.98407, 1.30881, 4.10559)
 
-[node name="Red2" parent="Graffiti" instance=ExtResource("5_xj2do")]
+[node name="Lime" parent="Graffiti" instance=ExtResource("6_e3fkf")]
 transform = Transform3D(0.0033687, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.0033687, 7.02789, 1.30881, -5.88797)
 
-[node name="Red3" parent="Graffiti" instance=ExtResource("5_xj2do")]
-transform = Transform3D(0.0033687, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.0033687, -4.97755, 0.887076, -5.15342)
+[node name="Strawberry" parent="Graffiti" instance=ExtResource("7_fh3bf")]
+transform = Transform3D(0.0033687, 0, -0.999994, 0, 1, 0, 0.999994, 0, 0.0033687, -4.97755, 1.40741, -5.15342)
 
-[node name="Red4" parent="Graffiti" instance=ExtResource("5_xj2do")]
+[node name="Kiwi" parent="Graffiti" instance=ExtResource("8_04w3b")]
 transform = Transform3D(-0.999994, 0, -0.00336866, 0, 1, 0, 0.00336866, 0, -0.999994, 2, 1.309, -1.9638)
 
-[node name="Yellow" parent="Graffiti" instance=ExtResource("6_eleei")]
+[node name="Banana" parent="Graffiti" instance=ExtResource("6_eleei")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 7.0045, 1.13713, 0)
 
-[node name="Green2" parent="Graffiti" instance=ExtResource("7_g2tia")]
+[node name="Orange" parent="Graffiti" instance=ExtResource("7_g2tia")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 4, 1.137, 4.027)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
