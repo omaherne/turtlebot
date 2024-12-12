@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://u45ol1gfbopb"]
+
+[ext_resource type="Shader" path="res://addons/flexible_toon_shader/flexible_toon.gdshader" id="1_r4ofk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n34r6"]
+render_priority = 0
+shader = ExtResource("1_r4ofk")
+shader_parameter/albedo = Color(0.452219, 0.457369, 0.673634, 1)
+shader_parameter/clamp_diffuse_to_max = false
+shader_parameter/cuts = 3
+shader_parameter/wrap = 0.0
+shader_parameter/steepness = 1.0
+shader_parameter/use_attenuation = false
+shader_parameter/use_specular = false
+shader_parameter/specular_strength = 1.0
+shader_parameter/specular_shininess = 16.0
+shader_parameter/use_rim = false
+shader_parameter/rim_width = 8.0
+shader_parameter/rim_color = Color(1, 1, 1, 1)
+shader_parameter/use_ramp = false
+shader_parameter/use_borders = true
+shader_parameter/border_width = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_yd5n7"]
+material = SubResource("ShaderMaterial_n34r6")
+size = Vector3(1, 3, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5xy2x"]
+size = Vector3(1, 3, 1)
+
+[node name="Wall" type="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+mesh = SubResource("BoxMesh_yd5n7")
+skeleton = NodePath("")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_5xy2x")

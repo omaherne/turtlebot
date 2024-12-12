@@ -6,96 +6,96 @@
 [ext_resource type="Script" path="res://addons/FeagiIntegration/Configuration/FEAGI_Genome_Mapping.gd" id="3_cvmp4"]
 [ext_resource type="Script" path="res://addons/FeagiIntegration/FEAGI IOConnectors/Sensor/FEAGI_IOConnector_Sensor_Proximity.gd" id="5_rhqm8"]
 
-[sub_resource type="Resource" id="Resource_brxf5"]
+[sub_resource type="Resource" id="Resource_0esfn"]
 script = ExtResource("1_p07rt")
 godot_action_name = &"move_forward"
 action_hold_seconds = 0.3
 action_press_FEAGI_threshold = 0.5
 action_release_FEAGI_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_xwec0"]
+[sub_resource type="Resource" id="Resource_gtr74"]
 script = ExtResource("1_p07rt")
 godot_action_name = &"move_backward"
 action_hold_seconds = 0.3
 action_press_FEAGI_threshold = 0.5
 action_release_FEAGI_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_681jj"]
+[sub_resource type="Resource" id="Resource_x8lm1"]
 script = ExtResource("1_p07rt")
 godot_action_name = &"NONE!"
 action_hold_seconds = 0.3
 action_press_FEAGI_threshold = 0.5
 action_release_FEAGI_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_gk7sa"]
+[sub_resource type="Resource" id="Resource_7bgm2"]
 script = ExtResource("1_p07rt")
 godot_action_name = &"NONE!"
 action_hold_seconds = 0.3
 action_press_FEAGI_threshold = 0.5
 action_release_FEAGI_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_ua6hj"]
+[sub_resource type="Resource" id="Resource_43tfr"]
 script = ExtResource("1_p07rt")
 godot_action_name = &"rotate_left"
 action_hold_seconds = 0.3
 action_press_FEAGI_threshold = 0.5
 action_release_FEAGI_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_4hm5t"]
+[sub_resource type="Resource" id="Resource_re7p8"]
 script = ExtResource("1_p07rt")
 godot_action_name = &"rotate_right"
 action_hold_seconds = 0.3
 action_press_FEAGI_threshold = 0.5
 action_release_FEAGI_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_7ma7j"]
+[sub_resource type="Resource" id="Resource_ivnrf"]
 script = ExtResource("1_p07rt")
 godot_action_name = &"NONE!"
 action_hold_seconds = 0.3
 action_press_FEAGI_threshold = 0.5
 action_release_FEAGI_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_nxtwt"]
+[sub_resource type="Resource" id="Resource_fqqnk"]
 script = ExtResource("1_p07rt")
 godot_action_name = &"NONE!"
 action_hold_seconds = 0.3
 action_press_FEAGI_threshold = 0.5
 action_release_FEAGI_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_klt63"]
+[sub_resource type="Resource" id="Resource_r7cfj"]
 script = ExtResource("1_p07rt")
 godot_action_name = &"NONE!"
 action_hold_seconds = 0.3
 action_press_FEAGI_threshold = 0.5
 action_release_FEAGI_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_fx44v"]
+[sub_resource type="Resource" id="Resource_xdyg0"]
 script = ExtResource("1_p07rt")
 godot_action_name = &"NONE!"
 action_hold_seconds = 0.3
 action_press_FEAGI_threshold = 0.5
 action_release_FEAGI_threshold = 0.5
 
-[sub_resource type="Resource" id="Resource_otdoe"]
+[sub_resource type="Resource" id="Resource_vijv0"]
 script = ExtResource("2_rj7hb")
 automatically_emulate_keys = {
-"move_down": SubResource("Resource_xwec0"),
-"move_left": SubResource("Resource_681jj"),
-"move_right": SubResource("Resource_gk7sa"),
-"move_up": SubResource("Resource_brxf5"),
-"pitch_backward": SubResource("Resource_fx44v"),
-"pitch_forward": SubResource("Resource_klt63"),
-"roll_left": SubResource("Resource_7ma7j"),
-"roll_right": SubResource("Resource_nxtwt"),
-"yaw_left": SubResource("Resource_ua6hj"),
-"yaw_right": SubResource("Resource_4hm5t")
+"move_down": SubResource("Resource_gtr74"),
+"move_left": SubResource("Resource_x8lm1"),
+"move_right": SubResource("Resource_7bgm2"),
+"move_up": SubResource("Resource_0esfn"),
+"pitch_backward": SubResource("Resource_xdyg0"),
+"pitch_forward": SubResource("Resource_r7cfj"),
+"roll_left": SubResource("Resource_ivnrf"),
+"roll_right": SubResource("Resource_fqqnk"),
+"yaw_left": SubResource("Resource_43tfr"),
+"yaw_right": SubResource("Resource_re7p8")
 }
 device_friendly_name = &"motion_control 0"
 FEAGI_index = 0
 device_ID = 0
 is_disabled = false
 
-[sub_resource type="Resource" id="Resource_43356"]
+[sub_resource type="Resource" id="Resource_hvv2m"]
 script = ExtResource("2_ln4qb")
 resolution = Vector2i(64, 64)
 is_flipped_x = false
@@ -105,28 +105,28 @@ FEAGI_index = 0
 device_ID = 0
 is_disabled = false
 
-[sub_resource type="Resource" id="Resource_b1teo"]
+[sub_resource type="Resource" id="Resource_m4ffa"]
 script = ExtResource("5_rhqm8")
 device_friendly_name = &"Left Sensor"
 FEAGI_index = 0
 device_ID = 0
 is_disabled = false
 
-[sub_resource type="Resource" id="Resource_h54gk"]
+[sub_resource type="Resource" id="Resource_t12lh"]
 script = ExtResource("5_rhqm8")
 device_friendly_name = &"Right Sensor"
 FEAGI_index = 1
 device_ID = 1
 is_disabled = false
 
-[sub_resource type="Resource" id="Resource_b4v7u"]
+[sub_resource type="Resource" id="Resource_mdwd8"]
 script = ExtResource("5_rhqm8")
 device_friendly_name = &"Front Sensor"
 FEAGI_index = 2
 device_ID = 2
 is_disabled = false
 
-[sub_resource type="Resource" id="Resource_fd7nb"]
+[sub_resource type="Resource" id="Resource_7bydg"]
 script = ExtResource("5_rhqm8")
 device_friendly_name = &"Back Sensor"
 FEAGI_index = 3
@@ -140,12 +140,12 @@ debugger_enabled = true
 delay_seconds_between_frames = 0.0333333
 configuration_JSON = &"{\"capabilities\":{\"input\":{\"camera\":{\"0\":{\"camera_resolution\":[64,64],\"custom_name\":\"camera 0\",\"disabled\":false,\"eccentricity_control\":{\"X offset percentage\":1,\"Y offset percentage\":1},\"feagi_index\":0,\"index\":\"00\",\"mirror\":false,\"modulation_control\":{\"X offset percentage\":99,\"Y offset percentage\":99},\"threshold_default\":50}},\"proximity\":{\"0\":{\"custom_name\":\"Left Sensor\",\"disabled\":false,\"feagi_index\":0,\"max_value\":0,\"min_value\":0},\"1\":{\"custom_name\":\"Right Sensor\",\"disabled\":false,\"feagi_index\":1,\"max_value\":0,\"min_value\":0},\"2\":{\"custom_name\":\"Front Sensor\",\"disabled\":false,\"feagi_index\":2,\"max_value\":0,\"min_value\":0},\"3\":{\"custom_name\":\"Back Sensor\",\"disabled\":false,\"feagi_index\":3,\"max_value\":0,\"min_value\":0}}},\"output\":{\"motion_control\":{\"0\":{\"custom_name\":\"motion_control 0\",\"disabled\":false,\"feagi_index\":0}}}}}"
 sensors = {
-"camera_camera 0": SubResource("Resource_43356"),
-"proximity_Back Sensor": SubResource("Resource_fd7nb"),
-"proximity_Front Sensor": SubResource("Resource_b4v7u"),
-"proximity_Left Sensor": SubResource("Resource_b1teo"),
-"proximity_Right Sensor": SubResource("Resource_h54gk")
+"camera_camera 0": SubResource("Resource_hvv2m"),
+"proximity_Back Sensor": SubResource("Resource_7bydg"),
+"proximity_Front Sensor": SubResource("Resource_mdwd8"),
+"proximity_Left Sensor": SubResource("Resource_m4ffa"),
+"proximity_Right Sensor": SubResource("Resource_t12lh")
 }
 motors = {
-"motion_control_motion_control 0": SubResource("Resource_otdoe")
+"motion_control_motion_control 0": SubResource("Resource_vijv0")
 }
