@@ -6,7 +6,7 @@
 script = ExtResource("1_h7v1g")
 magic_link_full = &"https://us-prd-composer.neurorobotics.studio/v1/public/regional/magic/feagi_session?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI4blBoZDN6MW5ST0xTZmRvQ0hSUGpaZ3pBWVAyIn0.atBJ90Uphtcz2OEkwQo3zJScAftjBjjsxX9KLVUjmJs"
 is_using_SSL = true
-FEAGI_TLD = &"user-nspdhlqmnbzvlnwttjpj-feagi.feagi-k8s-production.neurorobotics.studio"
+FEAGI_TLD = &"user-kxvvclqfstgknbldfofv-feagi.feagi-k8s-production.neurorobotics.studio"
 FEAGI_API_port = 443
-connector_TLD = &"user-nspdhlqmnbzvlnwttjpj-feagi.feagi-k8s-production.neurorobotics.studio/p9055"
+connector_TLD = &"user-kxvvclqfstgknbldfofv-feagi.feagi-k8s-production.neurorobotics.studio/p9055"
 connector_ws_port = 443
